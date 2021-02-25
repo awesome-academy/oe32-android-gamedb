@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">Gamer</string>
+    <string name="app_name">GameDB</string>
     <!-- TODO: Remove or change this placeholder text -->
-
+    <string name="string_saved">Saved</string>
+    <string name="string_games">Games</string>
+    <string name="string_ranking">Ranking</string>
+    <string name="string_genres">Genres</string>
+    <string name="string_setting">Setting</string>
 </resources>

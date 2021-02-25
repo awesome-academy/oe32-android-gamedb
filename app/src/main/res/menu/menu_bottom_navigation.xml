@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuSave"
+        android:icon="@drawable/ic_saved"
+        android:title="@string/string_saved"/>
+    <item
+        android:id="@+id/menuGames"
+        android:icon="@drawable/ic_games"
+        android:title="@string/string_games"/>
+    <item
+        android:id="@+id/menuRanking"
+        android:icon="@drawable/ic_ranking"
+        android:title="@string/string_ranking"/>
+    <item
+        android:id="@+id/menuGenres"
+        android:icon="@drawable/ic_genres"
+        android:title="@string/string_genres"/>
+    <item
+        android:id="@+id/menuSetting"
+        android:icon="@drawable/ic_setting"
+        android:title="@string/string_setting"/>
+</menu>
