@@ -6,4 +6,6 @@
     <string name="string_ranking">Ranking</string>
     <string name="string_genres">Genres</string>
     <string name="string_setting">Setting</string>
+    <string name="err_no_param_found">No param found</string>
+    <string name="err_unexpected_error">Unexpected Error</string>
 </resources>

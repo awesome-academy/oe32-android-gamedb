@@ -1,5 +1,5 @@
 package com.project.gamedb.base
 
-interface OnLongClickHandler{
+interface OnLongClickHandler {
     fun onLongClickHandler()
 }
