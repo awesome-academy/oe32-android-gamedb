@@ -1,13 +1,35 @@
 package com.project.gamedb.data.source.remote
 
+import com.project.gamedb.data.model.ResultGames
+import com.project.gamedb.data.source.DataAsyncTask
 import com.project.gamedb.data.source.GameDataSource
 import com.project.gamedb.data.source.remote.api.ApiConstants
+import com.project.gamedb.data.source.remote.api.ApiService
+import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 
 class GameRemoteDataSource : GameDataSource.Remote {
+    override fun getGames(callback: OnDataLoadedCallback<ResultGames>) {
+        DataAsyncTask(callback) {
+            getGames()
+        }.execute(ApiService.queryFeature())
+    }
+
+    override fun getGamesOrdered(ordering: String, callback: OnDataLoadedCallback<ResultGames>) {
+        DataAsyncTask(callback) {
+            getGamesOrdered(ordering)
+        }.execute(ApiService.queryFeatureOrdered(ordering))
+    }
+
+    private fun getGamesOrdered(ordering: String): ResultGames =
+        JSONObject(makeNetworkCall((URL(ApiService.queryFeatureOrdered(ordering))))).let(::ResultGames)
+
+    private fun getGames(): ResultGames =
+        JSONObject(makeNetworkCall(URL(ApiService.queryFeature()))).let(::ResultGames)
+
     private fun makeNetworkCall(
         url: URL,
         method: String = ApiConstants.METHOD_GET
@@ -28,6 +50,7 @@ class GameRemoteDataSource : GameDataSource.Remote {
             urlConnection?.disconnect()
         }
     }
+
     companion object {
         private var instance: GameRemoteDataSource? = null
 
