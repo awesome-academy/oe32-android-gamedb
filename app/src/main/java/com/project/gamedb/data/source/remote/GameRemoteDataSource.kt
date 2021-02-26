@@ -7,7 +7,7 @@ import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 
-class RemoteDataSource : GameDataSource.Remote {
+class GameRemoteDataSource : GameDataSource.Remote {
     private fun makeNetworkCall(
         url: URL,
         method: String = ApiConstants.METHOD_GET
@@ -29,8 +29,8 @@ class RemoteDataSource : GameDataSource.Remote {
         }
     }
     companion object {
-        private var instance: RemoteDataSource? = null
+        private var instance: GameRemoteDataSource? = null
 
-        fun getInstance() = instance ?: RemoteDataSource().also { instance = it }
+        fun getInstance() = instance ?: GameRemoteDataSource().also { instance = it }
     }
 }

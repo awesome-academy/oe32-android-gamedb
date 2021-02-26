@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/image_background"
+    android:scrollbars="none"
+    tools:context=".ui.popular.PopularFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerGameFeature"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_250"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/string_feature"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_40"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerGameFeature" />
+
+        <ImageButton
+            android:id="@+id/buttonSeeAll"
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_20"
+            android:adjustViewBounds="true"
+            android:background="@drawable/image_see_all"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerGameFeature" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:text="@string/string_see_all"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toBottomOf="@id/buttonSeeAll"
+            app:layout_constraintStart_toStartOf="@id/buttonSeeAll"
+            app:layout_constraintTop_toTopOf="@id/buttonSeeAll" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerGameItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/dp_70"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonSeeAll"
+            app:spanCount="2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity"
     android:background="@color/color_mine_shaft"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context=".ui.main.MainActivity">
 
+    <include layout="@layout/tool_bar_layout" />
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="?attr/actionBarSize"
+        app:layout_anchor="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="?attr/actionBarSize"
+        app:layout_anchor="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:background="@color/cardview_dark_background"
+            app:tabSelectedTextColor="@android:color/white" />
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/cardview_dark_background"
+        android:minHeight="@dimen/dp_70"
+        app:itemIconSize="@dimen/bottom_navigation_icon_size"
+        app:itemIconTint="@drawable/selector"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_anchor="@id/viewPagerFragment"
+        app:layout_anchorGravity="bottom"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+        app:menu="@menu/menu_bottom_navigation" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,9 +1,9 @@
 package com.project.gamedb.ultis
 
-import com.project.gamedb.data.source.remote.RemoteDataRepository
-import com.project.gamedb.data.source.remote.RemoteDataSource
+import com.project.gamedb.data.source.remote.GameRemoteRepository
+import com.project.gamedb.data.source.remote.GameRemoteDataSource
 
 object Repositories {
-    fun getRemoteRepository(remoteDataSource: RemoteDataSource): RemoteDataRepository =
-        RemoteDataRepository.getInstance(remoteDataSource)
+    fun getRemoteRepository(gameRemoteDataSource: GameRemoteDataSource): GameRemoteRepository =
+        GameRemoteRepository.getInstance(gameRemoteDataSource)
 }
