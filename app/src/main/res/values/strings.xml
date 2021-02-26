@@ -13,4 +13,7 @@
     <string name="background">Background</string>
     <string name="string_background">Background</string>
     <string name="string_logo">Logo</string>
+    <string name="string_order_rating">rating</string>
+    <string name="string_popular">Popular</string>
+    <string name="string_platform">Platform</string>
 </resources>
