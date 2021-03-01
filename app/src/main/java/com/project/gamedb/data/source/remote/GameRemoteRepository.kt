@@ -6,6 +6,7 @@ import com.project.gamedb.data.source.GameDataSource
 class GameRemoteRepository private constructor(
     private val remote: GameDataSource.Remote
 ) : GameDataSource.Remote {
+
     override fun getGames(callback: OnDataLoadedCallback<ResultGames>) {
         remote.getGames(callback)
     }
