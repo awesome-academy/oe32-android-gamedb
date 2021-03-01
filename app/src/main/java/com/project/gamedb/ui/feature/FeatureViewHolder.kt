@@ -18,8 +18,5 @@ class FeatureViewHolder(private val itemView: View) : BaseViewHolder<Games>(item
         }
     }
 
-    override fun onClick(v: View?) {
-
-    }
-
+    override fun onClick(v: View?) {}
 }
