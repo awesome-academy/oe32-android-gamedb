@@ -9,12 +9,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.project.gamedb.R
 import com.project.gamedb.base.BaseActivity
+import com.project.gamedb.ui.platform.PlatformFragment
 import com.project.gamedb.ui.popular.PopularFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
     private val popularFragment = PopularFragment()
-    private val mainAdapter : MainAdapter = MainAdapter(supportFragmentManager)
+    private val platformFragment = PlatformFragment()
+    private val mainAdapter: MainAdapter = MainAdapter(supportFragmentManager)
 
     override val layoutResource: Int get() = R.layout.activity_main
 
@@ -34,19 +36,23 @@ class MainActivity : BaseActivity() {
             true
         }
 
-    private fun initFragment(){
+    private fun initFragment() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.commit()
     }
 
-    private fun controlPage(){
-        val fragments = listOf<Fragment>(popularFragment)
-        val titles = listOf(getString(R.string.string_popular),getString(R.string.string_platform))
-        mainAdapter.setItemFragment(fragments,titles)
+    private fun controlPage() {
+        val fragments = listOf<Fragment>(popularFragment, platformFragment)
+        val titles = listOf(getString(R.string.string_popular), getString(R.string.string_platform))
+        mainAdapter.setItemFragment(fragments, titles)
         viewPagerFragment.adapter = mainAdapter
         tabLayout.setupWithViewPager(viewPagerFragment)
         viewPagerFragment.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
-        tabLayout.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(viewPagerFragment))
+        tabLayout.addOnTabSelectedListener(
+            TabLayout.ViewPagerOnTabSelectedListener(
+                viewPagerFragment
+            )
+        )
     }
 
     companion object {
