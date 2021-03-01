@@ -13,6 +13,6 @@ interface PopularContract {
 
     interface Presenter : BasePresenter {
         fun getMainGameFeature()
-        fun getItemGameFeature()
+        fun getItemGameFeature(order: String)
     }
 }

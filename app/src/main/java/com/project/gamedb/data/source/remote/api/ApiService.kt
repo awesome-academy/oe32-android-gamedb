@@ -8,6 +8,14 @@ object ApiService {
         .authority(ApiConstants.AUTHORITY_API_RAWG)
         .appendPath(ApiConstants.API)
         .appendPath(ApiConstants.GAMES)
-        .appendQueryParameter(ApiConstants.KEY,ApiConstants.API_KEY)
+        .appendQueryParameter(ApiConstants.KEY, ApiConstants.API_KEY)
+        .toString()
+
+    fun queryFeatureOrdered(ordering: String) = Uri.Builder().scheme(ApiConstants.SCHEME_HTTPS)
+        .authority(ApiConstants.AUTHORITY_API_RAWG)
+        .appendPath(ApiConstants.API)
+        .appendPath(ApiConstants.GAMES)
+        .appendQueryParameter(ApiConstants.KEY, ApiConstants.API_KEY)
+        .appendQueryParameter(ApiConstants.ORDERING, ordering)
         .toString()
 }
