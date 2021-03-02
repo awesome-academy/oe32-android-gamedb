@@ -1,5 +1,6 @@
 package com.project.gamedb.data.source.remote
 
+import com.project.gamedb.data.model.GameDetail
 import com.project.gamedb.data.model.ResultGames
 import com.project.gamedb.data.source.DataAsyncTask
 import com.project.gamedb.data.source.GameDataSource
@@ -15,14 +16,23 @@ class GameRemoteDataSource : GameDataSource.Remote {
     override fun getGames(callback: OnDataLoadedCallback<ResultGames>) {
         DataAsyncTask(callback) {
             getGames()
-        }.execute(ApiService.queryFeature())
+        }.execute("")
     }
 
     override fun getGamesOrdered(ordering: String, callback: OnDataLoadedCallback<ResultGames>) {
         DataAsyncTask(callback) {
-            getGamesOrdered(ordering)
-        }.execute(ApiService.queryFeatureOrdered(ordering))
+            getGamesOrdered(it)
+        }.execute(ordering)
     }
+
+    override fun getGameDetail(id: Long, callback: OnDataLoadedCallback<GameDetail>) {
+        DataAsyncTask(callback) {
+            getGameDetail(it.toLong())
+        }.execute(id.toString())
+    }
+
+    private fun getGameDetail(id: Long): GameDetail =
+        JSONObject(makeNetworkCall((URL(ApiService.queryGameDetail(id))))).let(::GameDetail)
 
     private fun getGamesOrdered(ordering: String): ResultGames =
         JSONObject(makeNetworkCall((URL(ApiService.queryFeatureOrdered(ordering))))).let(::ResultGames)

@@ -1,5 +1,6 @@
 package com.project.gamedb.data.source.remote
 
+import com.project.gamedb.data.model.GameDetail
 import com.project.gamedb.data.model.ResultGames
 import com.project.gamedb.data.source.GameDataSource
 
@@ -13,6 +14,10 @@ class GameRemoteRepository private constructor(
 
     override fun getGamesOrdered(ordering: String, callback: OnDataLoadedCallback<ResultGames>) {
         remote.getGamesOrdered(ordering, callback)
+    }
+
+    override fun getGameDetail(id: Long, callback: OnDataLoadedCallback<GameDetail>) {
+        remote.getGameDetail(id, callback)
     }
 
     companion object {

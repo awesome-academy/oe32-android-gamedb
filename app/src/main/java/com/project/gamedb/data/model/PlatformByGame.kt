@@ -10,6 +10,7 @@ data class PlatformByGame(
     val releasedAt: String,
     val requirements: Requirements?
 ) : Parcelable {
+
     constructor(jsonObject: JSONObject) : this(
         jsonObject.getJSONObject(GAME_ESRB_RATING).let(::Platform),
         jsonObject.getString(GAME_RELEASED_AT),

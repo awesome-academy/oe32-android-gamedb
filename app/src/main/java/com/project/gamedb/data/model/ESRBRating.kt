@@ -10,6 +10,7 @@ data class ESRBRating(
     val ratingSlug: String,
     val ratingName: String
 ) : Parcelable {
+
     constructor(jsonObject: JSONObject) : this(
         jsonObject.getLong(RATING_ID),
         jsonObject.getString(RATING_SLUG),

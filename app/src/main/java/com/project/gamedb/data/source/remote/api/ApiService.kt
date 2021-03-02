@@ -18,4 +18,11 @@ object ApiService {
         .appendQueryParameter(ApiConstants.KEY, ApiConstants.API_KEY)
         .appendQueryParameter(ApiConstants.ORDERING, ordering)
         .toString()
+
+    fun queryGameDetail(id: Long) = Uri.Builder().scheme(ApiConstants.SCHEME_HTTPS)
+        .authority(ApiConstants.AUTHORITY_API_RAWG)
+        .appendPath(ApiConstants.API)
+        .appendPath(ApiConstants.GAMES)
+        .appendPath(id.toString())
+        .toString()
 }
