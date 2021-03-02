@@ -26,6 +26,7 @@ data class Games(
     val gameEsrbRating: ESRBRating?,
     val gamePlatforms: List<PlatformByGame>
 ) : Parcelable {
+
     constructor(jsonObject: JSONObject) : this(
         jsonObject.getLong(GAME_ID),
         jsonObject.getString(GAME_SLUG),

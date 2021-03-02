@@ -10,6 +10,7 @@ data class Platform(
     val platformSlug: String,
     val platformName: String
 ) : Parcelable {
+
     constructor(jsonObject: JSONObject) : this(
         jsonObject.getLong(PLATFORM_ID),
         jsonObject.getString(PLATFORM_SLUG),

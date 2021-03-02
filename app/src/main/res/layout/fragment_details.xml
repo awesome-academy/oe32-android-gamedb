@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutDetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_teal_200">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_30"
+            android:background="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imagePublisherDetail"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginTop="@dimen/dp_50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textGameDetailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center"
+            android:text="@string/string_games"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_30"
+            app:layout_constraintEnd_toEndOf="@id/imagePublisherDetail"
+            app:layout_constraintStart_toStartOf="@id/imagePublisherDetail"
+            app:layout_constraintTop_toBottomOf="@id/imagePublisherDetail" />
+
+        <TextView
+            android:id="@+id/textDetailGenres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/string_games"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@id/textGameDetailName"
+            app:layout_constraintStart_toStartOf="@id/textGameDetailName"
+            app:layout_constraintTop_toBottomOf="@id/textGameDetailName" />
+
+        <Button
+            android:id="@+id/buttonFollow"
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/button_follow"
+            android:text="@string/string_follow"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@id/textDetailGenres"
+            app:layout_constraintStart_toStartOf="@id/textDetailGenres"
+            app:layout_constraintTop_toBottomOf="@id/textDetailGenres" />
+
+        <ImageView
+            android:id="@+id/imageInfoBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:adjustViewBounds="true"
+            android:src="@drawable/image_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonFollow" />
+
+        <TextView
+            android:id="@+id/textReleasedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_games"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toTopOf="@id/textStringReleasedDate"
+            app:layout_constraintEnd_toEndOf="@id/textStringReleasedDate"
+            app:layout_constraintStart_toStartOf="@id/textStringReleasedDate"
+            app:layout_constraintTop_toTopOf="@id/imageInfoBar" />
+
+        <TextView
+            android:id="@+id/textRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_games"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toTopOf="@id/textStringRating"
+            app:layout_constraintEnd_toEndOf="@id/imageInfoBar"
+            app:layout_constraintStart_toStartOf="@id/imageInfoBar"
+            app:layout_constraintTop_toTopOf="@id/imageInfoBar" />
+
+        <TextView
+            android:id="@+id/textMetaScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_games"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toTopOf="@id/textStringMetaScore"
+            app:layout_constraintEnd_toEndOf="@id/textStringMetaScore"
+            app:layout_constraintStart_toStartOf="@id/textStringMetaScore"
+            app:layout_constraintTop_toTopOf="@id/imageInfoBar" />
+
+        <TextView
+            android:id="@+id/textStringRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:text="@string/string_rating"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/imageInfoBar"
+            app:layout_constraintEnd_toEndOf="@id/imageInfoBar"
+            app:layout_constraintStart_toStartOf="@id/imageInfoBar" />
+
+        <TextView
+            android:id="@+id/textStringReleasedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_35"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:text="@string/string_release_date"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/imageInfoBar"
+            app:layout_constraintStart_toStartOf="@id/imageInfoBar" />
+
+        <TextView
+            android:id="@+id/textStringMetaScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_35"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:text="@string/string_meta_score"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/imageInfoBar"
+            app:layout_constraintEnd_toEndOf="@id/imageInfoBar" />
+
+        <TextView
+            android:id="@+id/textAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/string_about"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="@id/imageInfoBar"
+            app:layout_constraintTop_toBottomOf="@id/imageInfoBar" />
+
+        <TextView
+            android:id="@+id/textDetailDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintStart_toStartOf="@id/textAbout"
+            app:layout_constraintTop_toBottomOf="@id/textAbout" />
+
+        <TextView
+            android:id="@+id/textPlatform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/string_platform"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="@id/textDetailDescription"
+            app:layout_constraintTop_toBottomOf="@id/textDetailDescription" />
+
+        <TextView
+            android:id="@+id/textPlaytime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:text="@string/string_playtime"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textPlatform" />
+
+        <TextView
+            android:id="@+id/textPlatformDetail"
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textPlatform" />
+
+        <TextView
+            android:id="@+id/textUpdated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_updated"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@id/textUpdatedDetail"
+            app:layout_constraintStart_toStartOf="@id/textUpdatedDetail"
+            app:layout_constraintTop_toBottomOf="@id/textPlaytime" />
+
+        <TextView
+            android:id="@+id/textUpdatedDetail"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textPlatformDetail"
+            app:layout_constraintTop_toBottomOf="@id/textUpdated" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

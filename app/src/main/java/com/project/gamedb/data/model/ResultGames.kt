@@ -9,6 +9,7 @@ data class ResultGames(
     val previous: String,
     val results: List<Games>
 ) {
+
     constructor(jsonObject: JSONObject) : this(
         jsonObject.getLong(COUNT),
         jsonObject.getString(NEXT),

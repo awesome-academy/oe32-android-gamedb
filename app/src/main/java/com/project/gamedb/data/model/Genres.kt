@@ -12,6 +12,7 @@ data class Genres(
     val genresGamesCount: Long,
     val genresImageBackground: String
 ) : Parcelable {
+
     constructor(jsonObject: JSONObject) : this(
         jsonObject.getLong(GENRES_ID),
         jsonObject.getString(GENRES_NAME),

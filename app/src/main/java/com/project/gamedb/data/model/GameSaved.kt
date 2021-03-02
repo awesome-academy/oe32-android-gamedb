@@ -16,6 +16,7 @@ data class GameSaved(
     val score: Int,
     val reviewCount: String
 ): Parcelable {
+
     constructor(cursor: Cursor): this(
         id = cursor.getInt(cursor.getColumnIndex(ID)),
         name = cursor.getString(cursor.getColumnIndex(NAME)),
