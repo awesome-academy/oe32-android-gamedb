@@ -33,7 +33,7 @@
         android:id="@+id/imageXboxPlatform"
         style="@style/ImagePlatform"
         android:src="@drawable/image_xbox"
-        app:layout_constraintBottom_toTopOf="@id/mobilePlatform"
+        app:layout_constraintBottom_toTopOf="@id/imageMobilePlatform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/imagePsPlatform"
         app:layout_constraintTop_toBottomOf="@id/imagePcPlatform" />
@@ -45,12 +45,12 @@
         android:scaleType="fitXY"
         android:src="@drawable/image_nintendo_switch"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/mobilePlatform"
+        app:layout_constraintEnd_toStartOf="@id/imageMobilePlatform"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imagePsPlatform" />
 
     <ImageView
-        android:id="@+id/mobilePlatform"
+        android:id="@+id/imageMobilePlatform"
         style="@style/ImagePlatform"
         android:src="@drawable/image_mobile"
         app:layout_constraintBottom_toBottomOf="parent"

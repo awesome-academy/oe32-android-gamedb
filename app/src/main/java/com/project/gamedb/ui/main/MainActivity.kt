@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : BaseActivity() {
     private val popularFragment = PopularFragment()
     private val platformFragment = PlatformFragment()
-    private val mainAdapter: MainAdapter = MainAdapter(supportFragmentManager)
+    private val mainAdapter = MainAdapter(supportFragmentManager)
 
     override val layoutResource: Int get() = R.layout.activity_main
 

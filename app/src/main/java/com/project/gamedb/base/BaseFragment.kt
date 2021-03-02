@@ -6,15 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import com.project.gamedb.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 abstract class BaseFragment : Fragment() {
 
     @get: LayoutRes
     protected abstract val layoutResource: Int
 
-    protected abstract fun initData()
-
-    protected abstract fun initAdapter()
+    protected abstract fun startComponents()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +24,13 @@ abstract class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initData()
-        initAdapter()
+        startComponents()
+    }
+
+    protected fun openFragment(fragment: Fragment) {
+        fragmentContainer.visibility = View.VISIBLE
+        viewPagerFragment.visibility = View.GONE
+        tabLayout.visibility = View.GONE
+        fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer, fragment)?.commit()
     }
 }
