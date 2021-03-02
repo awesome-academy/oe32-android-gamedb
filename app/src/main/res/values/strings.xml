@@ -6,14 +6,21 @@
     <string name="string_ranking">Ranking</string>
     <string name="string_genres">Genres</string>
     <string name="string_setting">Setting</string>
-    <string name="err_no_param_found">No param found</string>
-    <string name="err_unexpected_error">Unexpected Error</string>
     <string name="string_feature">Feature</string>
     <string name="string_see_all">See all</string>
-    <string name="background">Background</string>
     <string name="string_background">Background</string>
     <string name="string_logo">Logo</string>
     <string name="string_order_rating">rating</string>
     <string name="string_popular">Popular</string>
     <string name="string_platform">Platform</string>
+    <string name="string_pc">PC</string>
+
+    <string name="err_no_param_found">No param found</string>
+    <string name="err_unexpected_error">Unexpected Error</string>
+
+    <string name="text_pc">pc</string>
+    <string name="text_ps">ps</string>
+    <string name="text_xbox">xbox</string>
+    <string name="text_nintendo">nintendo</string>
+    <string name="text_mobile">mobile</string>
 </resources>

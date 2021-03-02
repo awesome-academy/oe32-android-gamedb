@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 
 class MainAdapter internal constructor(fragmentManager: FragmentManager) :
     FragmentStatePagerAdapter(fragmentManager) {
+
     private var fragments = listOf<Fragment>()
     private var titles = listOf<String>()
 

@@ -8,7 +8,6 @@ import com.project.gamedb.base.BaseViewHolder
 import com.project.gamedb.data.model.Games
 
 class PopularAdapter : BaseAdapter<Games>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Games> {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_recyclerview_main, parent, false)

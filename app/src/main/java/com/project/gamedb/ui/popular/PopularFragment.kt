@@ -15,10 +15,15 @@ class PopularFragment : BaseFragment(), PopularContract.View {
     private val mainAdapter = PopularAdapter()
     private val itemAdapter = FeatureAdapter()
 
-    override val layoutResource: Int
-        get() = R.layout.fragment_popular
+    override val layoutResource get() = R.layout.fragment_popular
 
-    override fun initData() {
+    override fun startComponents() {
+        initData()
+        initPresenter()
+        initAdapter()
+    }
+
+    private fun initData() {
         initPresenter()
         mainPresenter?.apply {
             getMainGameFeature()
@@ -26,7 +31,7 @@ class PopularFragment : BaseFragment(), PopularContract.View {
         }
     }
 
-    override fun initAdapter() {
+    private fun initAdapter() {
         recyclerGameFeature.adapter = mainAdapter
         recyclerGameItem.adapter = itemAdapter
     }
@@ -49,5 +54,4 @@ class PopularFragment : BaseFragment(), PopularContract.View {
     override fun showError(error: String) {
         context?.showToast(error, Toast.LENGTH_LONG)
     }
-
 }

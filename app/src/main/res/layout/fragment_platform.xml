@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/image_background"
+    android:paddingBottom="@dimen/dp_70"
+    tools:context=".ui.platform.PlatformFragment">
+
+    <ImageView
+        android:id="@+id/imagePcPlatform"
+        style="@style/ImagePlatform"
+        android:contentDescription="@string/string_pc"
+        android:src="@drawable/image_pc"
+        app:layout_constraintBottom_toTopOf="@id/imagePsPlatform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagePsPlatform"
+        style="@style/ImagePlatform"
+        android:paddingEnd="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/image_playstation"
+        app:layout_constraintBottom_toTopOf="@id/imageNintendoPlatform"
+        app:layout_constraintEnd_toStartOf="@id/imageXboxPlatform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imagePcPlatform" />
+
+    <ImageView
+        android:id="@+id/imageXboxPlatform"
+        style="@style/ImagePlatform"
+        android:src="@drawable/image_xbox"
+        app:layout_constraintBottom_toTopOf="@id/imageMobilePlatform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imagePsPlatform"
+        app:layout_constraintTop_toBottomOf="@id/imagePcPlatform" />
+
+    <ImageView
+        android:id="@+id/imageNintendoPlatform"
+        style="@style/ImagePlatform"
+        android:paddingEnd="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/image_nintendo_switch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageMobilePlatform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imagePsPlatform" />
+
+    <ImageView
+        android:id="@+id/imageMobilePlatform"
+        style="@style/ImagePlatform"
+        android:src="@drawable/image_mobile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageNintendoPlatform"
+        app:layout_constraintTop_toBottomOf="@id/imageXboxPlatform" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
