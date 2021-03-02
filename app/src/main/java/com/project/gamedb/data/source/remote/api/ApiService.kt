@@ -25,4 +25,10 @@ object ApiService {
         .appendPath(ApiConstants.GAMES)
         .appendPath(id.toString())
         .toString()
+
+    fun queryGenres() = Uri.Builder().scheme(ApiConstants.SCHEME_HTTPS)
+        .authority(ApiConstants.AUTHORITY_API_RAWG)
+        .appendPath(ApiConstants.API)
+        .appendPath(ApiConstants.GENRES)
+        .toString()
 }

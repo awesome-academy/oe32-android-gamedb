@@ -31,5 +31,6 @@
     <string name="text_nintendo">nintendo</string>
     <string name="text_mobile">mobile</string>
 
-
+    <string name="format_popular_items">Popular items %s</string>
+    <string name="format_genres_item">Genres: %s</string>
 </resources>

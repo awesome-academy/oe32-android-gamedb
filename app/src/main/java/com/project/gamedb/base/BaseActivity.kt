@@ -33,5 +33,4 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         viewPagerFragment.visibility = View.VISIBLE
         tabLayout.visibility = View.VISIBLE
     }
-
 }

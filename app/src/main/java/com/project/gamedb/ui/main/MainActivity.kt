@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.project.gamedb.R
 import com.project.gamedb.base.BaseActivity
+import com.project.gamedb.ui.genres.GenresFragment
 import com.project.gamedb.ui.platform.PlatformFragment
 import com.project.gamedb.ui.popular.PopularFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : BaseActivity() {
     private val popularFragment = PopularFragment()
     private val platformFragment = PlatformFragment()
+    private val genresFragment = GenresFragment()
     private val mainAdapter = MainAdapter(supportFragmentManager)
 
     override val layoutResource: Int get() = R.layout.activity_main
@@ -32,13 +34,15 @@ class MainActivity : BaseActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menuGames -> openViewPager()
+                R.id.menuGenres -> openFragment(genresFragment)
             }
             true
         }
 
     private fun initFragment() {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.commit()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainer, genresFragment)
+            .commit()
     }
 
     private fun controlPage() {
