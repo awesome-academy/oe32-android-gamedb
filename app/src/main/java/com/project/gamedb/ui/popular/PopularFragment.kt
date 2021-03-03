@@ -19,8 +19,19 @@ class PopularFragment : BaseFragment(), PopularContract.View {
 
     override fun startComponents() {
         initData()
-        initPresenter()
         initAdapter()
+    }
+
+    override fun showGame(games: ResultGames) {
+        mainAdapter.replaceData(games.results)
+    }
+
+    override fun showItemGame(games: ResultGames) {
+        itemAdapter.replaceData(games.results)
+    }
+
+    override fun showError(error: String) {
+        context?.showToast(error, Toast.LENGTH_SHORT)
     }
 
     private fun initData() {
@@ -39,19 +50,5 @@ class PopularFragment : BaseFragment(), PopularContract.View {
     private fun initPresenter() {
         val repository = Repositories.getRemoteRepository(GameRemoteDataSource.getInstance())
         mainPresenter = PopularPresenter(this, repository)
-    }
-
-    override fun showGame(games: ResultGames) {
-        val list = games.results
-        mainAdapter.replaceData(list)
-    }
-
-    override fun showItemGame(games: ResultGames) {
-        val list = games.results
-        itemAdapter.replaceData(list)
-    }
-
-    override fun showError(error: String) {
-        context?.showToast(error, Toast.LENGTH_LONG)
     }
 }

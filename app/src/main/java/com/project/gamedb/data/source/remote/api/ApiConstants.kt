@@ -9,6 +9,7 @@ object ApiConstants {
     const val API ="api"
     const val API_KEY = BuildConfig.API_KEY
     const val KEY = "key"
+    const val GENRES ="genres"
 
     const val ORDERING = "ordering"
 

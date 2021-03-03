@@ -7,7 +7,7 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
     <style name="BackGroundImageView">
-        <item name="android:alpha">0.5</item>
+        <item name="android:alpha">0.3</item>
         <item name="android:scaleType">fitXY</item>
     </style>
     <style name="ImagePlatform" >
@@ -19,5 +19,7 @@
         <item name="android:paddingTop">@dimen/dp_10</item>
         <item name="android:paddingBottom">@dimen/dp_10</item>
     </style>
-
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/image_splash</item>
+    </style>
 </resources>
