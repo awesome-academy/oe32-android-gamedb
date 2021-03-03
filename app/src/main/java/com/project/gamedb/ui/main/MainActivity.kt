@@ -12,12 +12,15 @@ import com.project.gamedb.base.BaseActivity
 import com.project.gamedb.ui.genres.GenresFragment
 import com.project.gamedb.ui.platform.PlatformFragment
 import com.project.gamedb.ui.popular.PopularFragment
+import com.project.gamedb.ui.ranking.RankingFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.tool_bar_layout.*
 
 class MainActivity : BaseActivity() {
     private val popularFragment = PopularFragment()
     private val platformFragment = PlatformFragment()
     private val genresFragment = GenresFragment()
+    private val rankingFragment = RankingFragment()
     private val mainAdapter = MainAdapter(supportFragmentManager)
 
     override val layoutResource: Int get() = R.layout.activity_main
@@ -28,6 +31,7 @@ class MainActivity : BaseActivity() {
         initFragment()
         controlPage()
         bottomNavigationView.selectedItemId = R.id.menuGames
+        setSupportActionBar(toolbar)
     }
 
     private val onBottomNavigation =
@@ -35,6 +39,7 @@ class MainActivity : BaseActivity() {
             when (menuItem.itemId) {
                 R.id.menuGames -> openViewPager()
                 R.id.menuGenres -> openFragment(genresFragment)
+                R.id.menuRanking -> openFragment(rankingFragment)
             }
             true
         }
@@ -42,6 +47,7 @@ class MainActivity : BaseActivity() {
     private fun initFragment() {
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer, genresFragment)
+            .add(R.id.fragmentContainer, rankingFragment)
             .commit()
     }
 

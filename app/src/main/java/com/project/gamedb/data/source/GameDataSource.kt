@@ -13,5 +13,6 @@ interface GameDataSource {
         fun getGamesOrdered(ordering: String, callback: OnDataLoadedCallback<ResultGames>)
         fun getGameDetail(id: Long, callback: OnDataLoadedCallback<GameDetail>)
         fun getGenres(callback: OnDataLoadedCallback<ResultGenres>)
+        fun getGameRanking(year: Int, callback: OnDataLoadedCallback<ResultGames>)
     }
 }

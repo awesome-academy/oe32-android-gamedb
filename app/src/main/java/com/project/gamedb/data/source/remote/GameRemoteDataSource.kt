@@ -33,9 +33,15 @@ class GameRemoteDataSource : GameDataSource.Remote {
     }
 
     override fun getGenres(callback: OnDataLoadedCallback<ResultGenres>) {
-        DataAsyncTask(callback){
+        DataAsyncTask(callback) {
             getGenres()
         }.execute("")
+    }
+
+    override fun getGameRanking(year: Int, callback: OnDataLoadedCallback<ResultGames>) {
+        DataAsyncTask(callback) {
+            getGameRanking(it.toInt())
+        }.execute(year.toString())
     }
 
     private fun getGameDetail(id: Long): GameDetail =
@@ -49,6 +55,9 @@ class GameRemoteDataSource : GameDataSource.Remote {
 
     private fun getGenres(): ResultGenres =
         JSONObject(makeNetworkCall(URL(ApiService.queryGenres()))).let(::ResultGenres)
+
+    private fun getGameRanking(year: Int): ResultGames =
+        JSONObject(makeNetworkCall(URL(ApiService.queryRanking(year)))).let(::ResultGames)
 
     private fun makeNetworkCall(
         url: URL,

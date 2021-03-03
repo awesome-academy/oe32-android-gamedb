@@ -13,9 +13,13 @@ data class PlatformByGame(
 
     constructor(jsonObject: JSONObject) : this(
         jsonObject.getJSONObject(GAME_ESRB_RATING).let(::Platform),
-        jsonObject.getString(GAME_RELEASED_AT),
-        if (jsonObject.getString(GAME_REQUIREMENT) != "null") {
-            jsonObject.getJSONObject(GAME_REQUIREMENT).let(::Requirements)
+        if (jsonObject.has(GAME_RELEASED_AT)) jsonObject.getString(GAME_RELEASED_AT) else "",
+        if (jsonObject.has(GAME_REQUIREMENT)) {
+            if (jsonObject.getString(GAME_REQUIREMENT) != "null") {
+                jsonObject.getJSONObject(GAME_REQUIREMENT).let(::Requirements)
+            } else {
+                null
+            }
         } else {
             null
         }

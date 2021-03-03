@@ -31,4 +31,14 @@ object ApiService {
         .appendPath(ApiConstants.API)
         .appendPath(ApiConstants.GENRES)
         .toString()
+
+    fun queryRanking(year: Int) = Uri.Builder().scheme(ApiConstants.SCHEME_HTTPS)
+        .authority(ApiConstants.AUTHORITY_API_RAWG)
+        .appendPath(ApiConstants.API)
+        .appendPath(ApiConstants.GAMES)
+        .appendQueryParameter(ApiConstants.KEY, ApiConstants.API_KEY)
+        .appendQueryParameter(ApiConstants.DATES, getRankingTime(year))
+        .toString().replace(ApiConstants.COMMA_CODE, ApiConstants.COMMA)
+
+    private fun getRankingTime(year: Int): String = "$year-01-01,$year-12-12"
 }
