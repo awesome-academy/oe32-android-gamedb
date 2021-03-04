@@ -2,25 +2,27 @@ package com.project.gamedb.ui.main
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.project.gamedb.R
 import com.project.gamedb.base.BaseActivity
+import com.project.gamedb.base.OnFragmentIntegrationListener
 import com.project.gamedb.ui.genres.GenresFragment
 import com.project.gamedb.ui.platform.PlatformFragment
 import com.project.gamedb.ui.popular.PopularFragment
 import com.project.gamedb.ui.ranking.RankingFragment
+import com.project.gamedb.ui.saved.SavedGameFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tool_bar_layout.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), OnFragmentIntegrationListener {
     private val popularFragment = PopularFragment()
     private val platformFragment = PlatformFragment()
     private val genresFragment = GenresFragment()
     private val rankingFragment = RankingFragment()
+    private val savedFragment = SavedGameFragment.getInstance()
     private val mainAdapter = MainAdapter(supportFragmentManager)
 
     override val layoutResource: Int get() = R.layout.activity_main
@@ -34,12 +36,25 @@ class MainActivity : BaseActivity() {
         setSupportActionBar(toolbar)
     }
 
+    override fun openNewFragment(fragment: Fragment) {
+        bottomNavigationView.visibility = View.GONE
+        fragmentContainer.visibility = View.GONE
+        viewPagerFragment.visibility = View.GONE
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentDetail, fragment)
+            .addToBackStack(getString(R.string.string_fragment)).commit()
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) supportFragmentManager.popBackStack()
+    }
+
     private val onBottomNavigation =
         BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menuGames -> openViewPager()
-                R.id.menuGenres -> openFragment(genresFragment)
-                R.id.menuRanking -> openFragment(rankingFragment)
+                R.id.menuGenres -> switchFragment(genresFragment)
+                R.id.menuRanking -> switchFragment(rankingFragment)
+                R.id.menuSaved -> switchFragment(savedFragment)
             }
             true
         }
@@ -48,6 +63,7 @@ class MainActivity : BaseActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.fragmentContainer, genresFragment)
             .add(R.id.fragmentContainer, rankingFragment)
+            .add(R.id.fragmentContainer, savedFragment)
             .commit()
     }
 

@@ -17,31 +17,31 @@ class GameRemoteDataSource : GameDataSource.Remote {
     override fun getGames(callback: OnDataLoadedCallback<ResultGames>) {
         DataAsyncTask(callback) {
             getGames()
-        }.execute("")
+        }.execute()
     }
 
     override fun getGamesOrdered(ordering: String, callback: OnDataLoadedCallback<ResultGames>) {
         DataAsyncTask(callback) {
-            getGamesOrdered(it)
-        }.execute(ordering)
+            getGamesOrdered(ordering)
+        }.execute()
     }
 
     override fun getGameDetail(id: Long, callback: OnDataLoadedCallback<GameDetail>) {
         DataAsyncTask(callback) {
-            getGameDetail(it.toLong())
-        }.execute(id.toString())
+            getGameDetail(id)
+        }.execute()
     }
 
     override fun getGenres(callback: OnDataLoadedCallback<ResultGenres>) {
         DataAsyncTask(callback) {
             getGenres()
-        }.execute("")
+        }.execute()
     }
 
     override fun getGameRanking(year: Int, callback: OnDataLoadedCallback<ResultGames>) {
         DataAsyncTask(callback) {
-            getGameRanking(it.toInt())
-        }.execute(year.toString())
+            getGameRanking(year)
+        }.execute()
     }
 
     private fun getGameDetail(id: Long): GameDetail =

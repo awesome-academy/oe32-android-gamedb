@@ -26,11 +26,4 @@ abstract class BaseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         startComponents()
     }
-
-    protected fun openFragment(fragment: Fragment) {
-        fragmentContainer.visibility = View.VISIBLE
-        viewPagerFragment.visibility = View.GONE
-        tabLayout.visibility = View.GONE
-        fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer, fragment)?.commit()
-    }
 }

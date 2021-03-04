@@ -21,7 +21,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     protected abstract fun initComponents()
 
-    protected fun openFragment(fragment: Fragment) {
+    protected fun switchFragment(fragment: Fragment) {
         fragmentContainer.visibility = View.VISIBLE
         viewPagerFragment.visibility = View.GONE
         tabLayout.visibility = View.GONE
