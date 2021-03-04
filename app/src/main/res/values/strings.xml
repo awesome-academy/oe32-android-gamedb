@@ -33,4 +33,6 @@
 
     <string name="format_popular_items">Popular items %s</string>
     <string name="format_genres_item">Genres: %s</string>
+    <string name="string_best_of_the_year">Best of the year</string>
+    <string name="string_year">Year</string>
 </resources>

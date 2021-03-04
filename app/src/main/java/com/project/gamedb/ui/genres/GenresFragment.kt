@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_genres.*
 
 class GenresFragment : BaseFragment(), GenresContract.View {
     private var genresPresenter: GenresPresenter? = null
-    private var genresAdapter = GenresAdapter()
+    private val genresAdapter = GenresAdapter()
 
     override val layoutResource: Int
         get() = R.layout.fragment_genres

@@ -1,6 +1,7 @@
 package com.project.gamedb.ui.popular
 
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearSnapHelper
 import com.project.gamedb.R
 import com.project.gamedb.base.BaseFragment
 import com.project.gamedb.data.model.ResultGames
@@ -11,15 +12,16 @@ import com.project.gamedb.ultis.showToast
 import kotlinx.android.synthetic.main.fragment_popular.*
 
 class PopularFragment : BaseFragment(), PopularContract.View {
-    private var mainPresenter: PopularPresenter? = null
     private val mainAdapter = PopularAdapter()
     private val itemAdapter = FeatureAdapter()
+    private var mainPresenter: PopularPresenter? = null
 
     override val layoutResource get() = R.layout.fragment_popular
 
     override fun startComponents() {
         initData()
         initAdapter()
+        LinearSnapHelper().attachToRecyclerView(recyclerGameFeature)
     }
 
     override fun showGame(games: ResultGames) {

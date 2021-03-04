@@ -25,6 +25,10 @@ class GameRemoteRepository private constructor(
         remote.getGenres(callback)
     }
 
+    override fun getGameRanking(year: Int, callback: OnDataLoadedCallback<ResultGames>) {
+        remote.getGameRanking(year, callback)
+    }
+
     companion object {
         private var instance: GameRemoteRepository? = null
 
