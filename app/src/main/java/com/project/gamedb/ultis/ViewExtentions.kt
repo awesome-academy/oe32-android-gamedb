@@ -29,8 +29,17 @@ fun View.loadDrawable(context: Context, urlImage: String) {
                     resource: Drawable,
                     transition: com.bumptech.glide.request.transition.Transition<in Drawable>?
                 ) {
+                    resource.alpha = 100
                     this@loadDrawable.background = resource
                 }
             })
     }
+}
+
+fun View.show(){
+    this.visibility = View.VISIBLE
+}
+
+fun View.hide(){
+    this.visibility = View.GONE
 }

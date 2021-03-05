@@ -9,12 +9,8 @@
     android:fitsSystemWindows="true"
     tools:context=".ui.main.MainActivity">
 
-    <include layout="@layout/tool_bar_layout" />
 
-    <FrameLayout
-        android:id="@+id/fragmentDetail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <include layout="@layout/tool_bar_layout" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
@@ -40,6 +36,12 @@
             app:tabSelectedTextColor="@android:color/white" />
 
     </androidx.viewpager.widget.ViewPager>
+
+    <FrameLayout
+        android:id="@+id/fragmentDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="@dimen/dp_4" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

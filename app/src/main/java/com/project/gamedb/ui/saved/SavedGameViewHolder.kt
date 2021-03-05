@@ -23,11 +23,11 @@ class SavedGameViewHolder(private val itemView: View) : BaseViewHolder<GameSaved
             savedBackground.loadImage(item.url)
             textMetaScoreSaved.text =
                 context.getString(
-                    R.string.meta_score_point,
+                    R.string.text_meta_score_point,
                     if (item.score > 0) item.score.toString() else 0
                 )
-            releasedDateSaved.text = context.getString(R.string.released_date, item.date)
-            textGenresSaved.text = context.getString(R.string.genres, item.genres)
+            releasedDateSaved.text = context.getString(R.string.text_released_date, item.date)
+            textGenresSaved.text = context.getString(R.string.text_genres, item.genres)
             textCommentCount.text = item.reviewCount
             onClickMode(this)
             this.setOnLongClickListener {

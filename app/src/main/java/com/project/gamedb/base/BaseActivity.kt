@@ -25,7 +25,10 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         fragmentContainer.visibility = View.VISIBLE
         viewPagerFragment.visibility = View.GONE
         tabLayout.visibility = View.GONE
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .addToBackStack(getString(R.string.string_fragment))
+            .commit()
     }
 
     protected fun openViewPager() {

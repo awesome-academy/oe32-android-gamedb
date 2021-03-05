@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_mine_shaft"
+    tools:context=".ui.setting.SettingFragment">
+
+    <TextView
+        android:id="@+id/textPush"
+        style="@style/NotificationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_notify_update"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textPushNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_update_describe"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@id/textPush"
+        app:layout_constraintTop_toBottomOf="@id/textPush" />
+
+    <TextView
+        android:id="@+id/textNewGame"
+        style="@style/NotificationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_new_game"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textPushNotification" />
+
+    <TextView
+        android:id="@+id/textNewGameNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_new_describe"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@id/textNewGame"
+        app:layout_constraintTop_toBottomOf="@id/textNewGame" />
+
+    <TextView
+        android:id="@+id/textAbout"
+        style="@style/NotificationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_about"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textNewGameNotification" />
+
+    <TextView
+        android:id="@+id/textFAQSupport"
+        style="@style/NotificationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_faq_support"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAbout" />
+
+    <TextView
+        android:id="@+id/textVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        android:text="@string/text_version_1_00"
+        android:textColor="@color/color_teal_700"
+        app:layout_constraintStart_toStartOf="@id/textFAQSupport"
+        app:layout_constraintTop_toBottomOf="@id/textFAQSupport" />
+
+    <CheckBox
+        android:id="@+id/boxCheckPush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/color_teal_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textPush" />
+
+    <CheckBox
+        android:id="@+id/boxCheckNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/color_teal_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textNewGame" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
