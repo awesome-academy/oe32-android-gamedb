@@ -26,7 +26,6 @@ class PlatformFragment : BaseFragment(), View.OnClickListener {
             R.id.imageNintendoPlatform -> getString(R.string.text_nintendo)
             else -> getString(R.string.text_mobile)
         }
-        openFragment(newInstance(platform))
     }
 
     private fun handleClick() {

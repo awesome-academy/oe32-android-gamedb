@@ -12,6 +12,11 @@
     <include layout="@layout/tool_bar_layout" />
 
     <FrameLayout
+        android:id="@+id/fragmentDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

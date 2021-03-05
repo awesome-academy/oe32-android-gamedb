@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
 
@@ -19,7 +20,8 @@ fun View.setScreenWidth(ratio: Double) {
 fun View.loadDrawable(context: Context, urlImage: String) {
     if (this.isVisible) {
         Glide.with(context).load(urlImage)
-            .apply(RequestOptions().override(this.width, this.height)).fitCenter().into(object :
+            .apply(RequestOptions().override(this.width, this.height)).transform(CenterCrop())
+            .into(object :
                 CustomTarget<Drawable>() {
                 override fun onLoadCleared(placeholder: Drawable?) {}
 

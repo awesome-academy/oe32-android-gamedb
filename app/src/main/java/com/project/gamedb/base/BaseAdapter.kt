@@ -23,4 +23,12 @@ abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
             notifyDataSetChanged()
         }
     }
+
+    fun getPositionList(list: List<T>): List<Int> = list.map { items.indexOf(it) }
+
+    fun removeData(data: T) {
+        items.remove(data)
+        notifyItemRemoved(items.indexOf(data))
+        notifyDataSetChanged()
+    }
 }

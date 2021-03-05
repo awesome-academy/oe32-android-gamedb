@@ -6,14 +6,14 @@ import com.project.gamedb.data.source.remote.OnDataLoadedCallback
 
 class DataAsyncTask<T>(
     private val callback: OnDataLoadedCallback<T>,
-    private val handle: (String) -> T
+    private val handle: () -> T
 ) : AsyncTask<String, Unit, T?>() {
 
     private var exception: Exception? = null
 
     override fun doInBackground(vararg params: String): T? =
         try {
-            handle(params[0])
+            handle()
                 ?: throw Exception(R.string.err_no_param_found.toString())
         } catch (e: Exception) {
             exception = e

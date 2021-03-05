@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/saveLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_200"
+    android:layout_marginStart="@dimen/dp_10"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginEnd="@dimen/dp_10"
+    android:layout_marginBottom="@dimen/dp_4"
+    android:background="@drawable/shape_edge"
+    tools:targetApi="o">
+
+    <ImageView
+        android:id="@+id/savedBackground"
+        style="@style/BackGroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:id="@+id/boxChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/button_round"
+        android:checked="true"
+        android:enabled="false" />
+
+    <TextView
+        android:id="@+id/gameSavedName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_70"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:paddingEnd="@dimen/dp_10"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_30" />
+
+    <ImageView
+        android:id="@+id/image1stFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_below="@id/gameSavedName"
+        android:layout_alignStart="@id/gameSavedName"
+        android:layout_marginTop="@dimen/dp_4" />
+
+    <ImageView
+        android:id="@+id/image2ndFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_below="@id/gameSavedName"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_toEndOf="@id/image1stFavPlatform" />
+
+    <ImageView
+        android:id="@+id/image3rdFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_below="@id/gameSavedName"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_toEndOf="@id/image2ndFavPlatform" />
+
+    <ImageView
+        android:id="@+id/image4thFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_below="@id/gameSavedName"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_toEndOf="@id/image3rdFavPlatform" />
+
+    <ImageView
+        android:id="@+id/image5thFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_below="@id/gameSavedName"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_toEndOf="@id/image4thFavPlatform" />
+
+    <TextView
+        android:id="@+id/textMetaScoreSaved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameSavedName"
+        android:layout_alignStart="@id/imageBar"
+        android:layout_marginStart="@dimen/dp_20"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_17" />
+
+    <ImageView
+        android:id="@+id/imageBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textMetaScoreSaved"
+        android:layout_marginStart="@dimen/dp_100"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:src="@drawable/image_layer_bar" />
+
+    <TextView
+        android:id="@+id/releasedDateSaved"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageBar"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_12" />
+
+    <TextView
+        android:id="@+id/textGenresSaved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageBar"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:layout_toStartOf="@id/imageCommentSaved"
+        android:layout_toEndOf="@id/releasedDateSaved"
+        android:autoSizeTextType="uniform"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_12" />
+
+    <TextView
+        android:id="@+id/textCommentCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageBar"
+        android:layout_alignEnd="@id/imageBar"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:autoSizeTextType="uniform"
+        android:textColor="@android:color/white" />
+
+    <ImageView
+        android:id="@+id/imageCommentSaved"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageBar"
+        android:layout_alignEnd="@id/imageBar"
+        android:layout_marginEnd="@dimen/dp_40"
+        android:src="@drawable/ic_comment" />
+
+</RelativeLayout>
