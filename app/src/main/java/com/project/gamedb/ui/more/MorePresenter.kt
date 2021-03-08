@@ -20,7 +20,6 @@ class MorePresenter(
             override fun onFailure(exception: Exception?) {
                 view.showError(exception?.message.toString())
             }
-
         })
     }
 

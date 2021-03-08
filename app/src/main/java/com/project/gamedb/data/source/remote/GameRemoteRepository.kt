@@ -36,7 +36,7 @@ class GameRemoteRepository private constructor(
     }
 
     override fun getGenresInfo(info: String, callback: OnDataLoadedCallback<GenresDetails>) {
-        remote.getGenresInfo(info, callback)
+        remote.getGenresInfo(info,callback)
     }
 
     companion object {

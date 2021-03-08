@@ -21,39 +21,29 @@
     <string name="string_about">About</string>
     <string name="string_playtime">Playtime %sh</string>
     <string name="string_updated">Updated</string>
-    <string name="string_best_of_the_year">Best of the year</string>
-    <string name="string_year">Year</string>
-    <string name="string_favourite">Favourite</string>
-    <string name="string_delete">Delete</string>
-    <string name="string_fragment">Fragment</string>
-    <string name="string_notify_update">Notify my saved game</string>
-    <string name="string_update_describe">Show notification once your favourite games being updated</string>
-    <string name="string_new_describe">Display the latest games</string>
-    <string name="string_new_game">Show New Game</string>
-    <string name="string_faq_support"><![CDATA[FAQ & Support]]></string>
 
     <string name="err_no_param_found">No param found</string>
     <string name="err_unexpected_error">Unexpected Error</string>
-    <string name="err_no_activiy">Activity error</string>
 
     <string name="text_pc">pc</string>
     <string name="text_ps">ps</string>
     <string name="text_xbox">xbox</string>
     <string name="text_nintendo">nintendo</string>
     <string name="text_mobile">mobile</string>
-    <string name="text_load_success">Load Succeess</string>
-    <string name="text_remove_success">Remove Success</string>
-    <string name="text_add_success">Add Success</string>
-    <string name="text_meta_score_point">Metascore: %s</string>
-    <string name="text_released_date">Released Date: %s</string>
-    <string name="text_genres">Genres: %s</string>
-    <string name="text_version_1_00">Version 1.00</string>
-    <string name="text_about">About</string>
-    <string name="text_FAQSupport"><![CDATA[FAQ & Support]]></string>
 
     <string name="format_popular_items">Popular items %s</string>
     <string name="format_genres_item">Genres: %s</string>
+    <string name="string_best_of_the_year">Best of the year</string>
+    <string name="string_year">Year</string>
+    <string name="string_favourite">Favourite</string>
+    <string name="string_delete">Delete</string>
+    <string name="load_success">Load Succeess</string>
+    <string name="remove_success">Remove Success</string>
+    <string name="add_success">Add Success</string>
+    <string name="meta_score_point">Metascore: %s</string>
+    <string name="released_date">Released Date: %s</string>
+    <string name="genres">Genres: %s</string>
+    <string name="string_fragment">Fragment</string>
     <string name="text_Loading">Loading</string>
-    <string name="text_save_nothing">You do not save any game yet</string>
     <string name="string_ordering">ordering</string>
 </resources>

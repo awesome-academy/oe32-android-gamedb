@@ -2,33 +2,30 @@ package com.project.gamedb.ui.main
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.view.View
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.project.gamedb.R
 import com.project.gamedb.base.BaseActivity
 import com.project.gamedb.base.OnFragmentIntegrationListener
-import com.project.gamedb.ui.details.DetailsFragment
 import com.project.gamedb.ui.genres.GenresFragment
+import com.project.gamedb.ui.more.MoreFragment
 import com.project.gamedb.ui.platform.PlatformFragment
 import com.project.gamedb.ui.popular.PopularFragment
 import com.project.gamedb.ui.ranking.RankingFragment
 import com.project.gamedb.ui.saved.SavedGameFragment
-import com.project.gamedb.ui.setting.SettingFragment
+import com.project.gamedb.ultis.hide
+import com.project.gamedb.ultis.show
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tool_bar_layout.*
 
 class MainActivity : BaseActivity(), OnFragmentIntegrationListener.Open,
-    OnFragmentIntegrationListener.Close {
-
+    OnFragmentIntegrationListener.Close  {
     private val popularFragment = PopularFragment()
     private val platformFragment = PlatformFragment()
     private val genresFragment = GenresFragment()
     private val rankingFragment = RankingFragment()
-    private val settingFragment = SettingFragment()
     private val savedFragment = SavedGameFragment.getInstance()
     private val mainAdapter = MainAdapter(supportFragmentManager)
 
@@ -41,14 +38,11 @@ class MainActivity : BaseActivity(), OnFragmentIntegrationListener.Open,
         controlPage()
         bottomNavigationView.selectedItemId = R.id.menuGames
         setSupportActionBar(toolbar)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            window.attributes.layoutInDisplayCutoutMode =
-                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER
-        }
     }
 
     override fun openNewFragment(fragment: Fragment) {
         bottomNavigationView.visibility = View.GONE
+        fragmentDetail.show()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentDetail, fragment)
             .addToBackStack(getString(R.string.string_fragment))
@@ -56,9 +50,11 @@ class MainActivity : BaseActivity(), OnFragmentIntegrationListener.Open,
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 0) supportFragmentManager.popBackStack()
-        if (supportFragmentManager.fragments.lastOrNull() !is DetailsFragment) bottomNavigationView.visibility =
-            View.VISIBLE
+        if (supportFragmentManager.backStackEntryCount > 0) supportFragmentManager.popBackStackImmediate()
+        if (supportFragmentManager.fragments.lastOrNull() !is MoreFragment) {
+            bottomNavigationView.show()
+            fragmentDetail.hide()
+        }
     }
 
     override fun pressBackButton() {
@@ -72,7 +68,6 @@ class MainActivity : BaseActivity(), OnFragmentIntegrationListener.Open,
                 R.id.menuGenres -> switchFragment(genresFragment)
                 R.id.menuRanking -> switchFragment(rankingFragment)
                 R.id.menuSaved -> switchFragment(savedFragment)
-                R.id.menuSetting -> switchFragment(settingFragment)
             }
             true
         }
@@ -82,7 +77,6 @@ class MainActivity : BaseActivity(), OnFragmentIntegrationListener.Open,
             .add(R.id.fragmentContainer, genresFragment)
             .add(R.id.fragmentContainer, rankingFragment)
             .add(R.id.fragmentContainer, savedFragment)
-            .add(R.id.fragmentContainer, settingFragment)
             .commit()
     }
 

@@ -12,7 +12,6 @@ object ApiConstants {
     const val GENRES = "genres"
     const val DATES = "dates"
     const val ORDERING = "ordering"
-    const val PLATFORM = "platforms"
 
     const val COMMA_CODE = "%252C"
     const val COMMA = ","

@@ -3,43 +3,30 @@ package com.project.gamedb.ui.ranking
 import android.view.View
 import android.widget.ImageView
 import com.project.gamedb.base.BaseViewHolder
-import com.project.gamedb.base.OnClickDetailsListener
 import com.project.gamedb.data.model.Games
 import com.project.gamedb.ultis.*
 import kotlinx.android.synthetic.main.item_recyclerview_ranking.view.*
 
-class RankingViewHolder(
-    private val itemView: View,
-    private val onClickDetailsListener: OnClickDetailsListener
-) :
-    BaseViewHolder<Games>(itemView) {
+class RankingViewHolder(private val itemView: View) : BaseViewHolder<Games>(itemView) {
+    private var itemFeature: Games? = null
 
     override fun onBind(item: Games) {
+        itemFeature = item
         itemView.run {
             textRankingGame.text = item.gameName
             imageRanking.loadImage(item.gameBackgroundImage)
             textComment.text = item.gameReviewsCounts
             val platforms = getPlatform(item.gamePlatforms.toString())
-            setPlatform(this, platforms)
-            this.setOnClickListener {
-                onClickDetailsListener.openGameDetail(
-                    item.gameId.toInt(),
-                    item.gameGenres.toString()
-                )
+            val imageRanking = listOf<ImageView>(
+                image1stRankingPlatform,
+                image2ndRankingPlatform,
+                image3rdRankingPlatform,
+                image4thRankingPlatform,
+                image5thRankingPlatform
+            )
+            for (i in platforms.indices) {
+                imageRanking[i].setPlatform(platforms[i])
             }
-        }
-    }
-
-    private fun setPlatform(view: View, platforms: List<String>) {
-        val imageRanking = listOf<ImageView>(
-            view.image1stRankingPlatform,
-            view.image2ndRankingPlatform,
-            view.image3rdRankingPlatform,
-            view.image4thRankingPlatform,
-            view.image5thRankingPlatform
-        )
-        for (i in platforms.indices) {
-            imageRanking[i].setPlatform(platforms[i])
         }
     }
 

@@ -1,11 +1,12 @@
 package com.project.gamedb.base
 
 import android.os.Bundle
-import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.project.gamedb.R
+import com.project.gamedb.ultis.hide
+import com.project.gamedb.ultis.show
 import kotlinx.android.synthetic.main.activity_main.*
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
@@ -17,14 +18,15 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         super.onCreate(savedInstanceState)
         setContentView(layoutResource)
         initComponents()
+        fragmentDetail.hide()
     }
 
     protected abstract fun initComponents()
 
     protected fun switchFragment(fragment: Fragment) {
-        fragmentContainer.visibility = View.VISIBLE
-        viewPagerFragment.visibility = View.GONE
-        tabLayout.visibility = View.GONE
+        fragmentContainer.show()
+        viewPagerFragment.hide()
+        tabLayout.hide()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .addToBackStack(getString(R.string.string_fragment))
@@ -32,8 +34,8 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     }
 
     protected fun openViewPager() {
-        fragmentContainer.visibility = View.GONE
-        viewPagerFragment.visibility = View.VISIBLE
-        tabLayout.visibility = View.VISIBLE
+        fragmentContainer.hide()
+        viewPagerFragment.show()
+        tabLayout.show()
     }
 }

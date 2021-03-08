@@ -53,12 +53,12 @@ class GameRemoteDataSource : GameDataSource.Remote {
     }
 
     override fun getGenresInfo(info: String, callback: OnDataLoadedCallback<GenresDetails>) {
-        DataAsyncTask(callback) {
+        DataAsyncTask(callback){
             getGenresInfo(info)
-        }
+        }.execute()
     }
 
-    private fun getGenresInfo(id: String): GenresDetails =
+    private fun getGenresInfo(id: String): GenresDetails  =
         JSONObject(makeNetworkCall((URL(ApiService.queryGenresInfo(id))))).let(::GenresDetails)
 
     private fun getMoreOption(ordering: String, query: String): ResultGames =

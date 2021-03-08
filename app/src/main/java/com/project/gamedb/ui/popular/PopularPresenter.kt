@@ -23,7 +23,7 @@ class PopularPresenter(
     }
 
     override fun getItemGameFeature(order: String) {
-        repositoryGame.getGamesOrdered(order, object : OnDataLoadedCallback<ResultGames> {
+        repositoryGame.getGamesOrdered(order,object : OnDataLoadedCallback<ResultGames> {
             override fun onSuccess(data: ResultGames) {
                 view.showItemGame(data)
             }

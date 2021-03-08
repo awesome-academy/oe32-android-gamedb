@@ -28,9 +28,7 @@ abstract class BaseAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
 
     fun removeData(data: T) {
         items.remove(data)
-        if (items.indexOf(data) != -1) {
-            notifyItemRemoved(items.indexOf(data))
-            notifyDataSetChanged()
-        }
+        notifyItemRemoved(items.indexOf(data))
+        notifyDataSetChanged()
     }
 }

@@ -3,7 +3,7 @@ package com.project.gamedb.data.model
 import com.project.gamedb.ultis.map
 import org.json.JSONObject
 
-class ResultGenres(
+class ResultGenres (
     val count: Long,
     val next: String,
     val previous: String,

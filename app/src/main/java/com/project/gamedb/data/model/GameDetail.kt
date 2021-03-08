@@ -13,6 +13,7 @@ class GameDetail(
     val released: String,
     val updated: String,
     val metacritic: Int,
+    val ratingCount: Int,
     val backgroundImage: String,
     val backgroundImageAdditional: String,
     val rating: Long,
@@ -26,7 +27,8 @@ class GameDetail(
         jsonObject.getString(DESCRIPTION),
         jsonObject.getString(RELEASED),
         jsonObject.getString(UPDATED),
-        jsonObject.getInt(METACRITIC),
+        if (jsonObject.getString(Games.GAME_META_CRITIC) != "null") jsonObject.getInt(Games.GAME_META_CRITIC) else 0,
+        jsonObject.getInt(RATING_COUNT),
         jsonObject.getString(BACKGROUND_IMAGE),
         jsonObject.getString(BACKGROUND_IMAGE_ADDITIONAL),
         jsonObject.getLong(RATING),
@@ -41,6 +43,7 @@ class GameDetail(
         const val RELEASED = "released"
         const val UPDATED = "updated"
         const val METACRITIC = "metacritic"
+        const val RATING_COUNT = "ratings_count"
         const val BACKGROUND_IMAGE = "background_image"
         const val BACKGROUND_IMAGE_ADDITIONAL = "background_image_additional"
         const val RATING = "rating"

@@ -20,4 +20,3 @@ data class Requirements(
         const val RECOMMENDED = "recommended"
     }
 }
-

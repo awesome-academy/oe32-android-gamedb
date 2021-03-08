@@ -1,7 +1,6 @@
 package com.project.gamedb.ui.popular
 
 import android.content.Context
-import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.project.gamedb.R
@@ -19,17 +18,12 @@ import com.project.gamedb.ultis.showToast
 import kotlinx.android.synthetic.main.fragment_popular.*
 
 class PopularFragment : BaseFragment(), PopularContract.View, OnClickDetailsListener {
-    private var mainAdapter: PopularAdapter? = null
-    private var itemAdapter: FeatureAdapter? = null
-    private var mainPresenter: PopularPresenter? = null
-    private var mainCallback: OnFragmentIntegrationListener.Open? = null
-
     override val layoutResource get() = R.layout.fragment_popular
 
-    init {
-        mainAdapter = PopularAdapter(this)
-        itemAdapter = FeatureAdapter(this)
-    }
+    private var mainAdapter: PopularAdapter = PopularAdapter(this)
+    private var itemAdapter: FeatureAdapter = FeatureAdapter(this)
+    private var mainPresenter: PopularPresenter? = null
+    private var mainCallback: OnFragmentIntegrationListener.Open? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -44,12 +38,12 @@ class PopularFragment : BaseFragment(), PopularContract.View, OnClickDetailsList
 
     override fun showGame(games: ResultGames) {
         textFeatureLoading?.hide()
-        mainAdapter?.replaceData(games.results)
+        mainAdapter.replaceData(games.results)
     }
 
     override fun showItemGame(games: ResultGames) {
         textItemLoading?.hide()
-        itemAdapter?.replaceData(games.results)
+        itemAdapter.replaceData(games.results)
     }
 
     override fun showError(error: String) {
@@ -73,9 +67,9 @@ class PopularFragment : BaseFragment(), PopularContract.View, OnClickDetailsList
         recyclerGameItem.adapter = itemAdapter
         buttonSeeAll.setOnClickListener {
             mainCallback?.openNewFragment(
-                MoreFragment(
+                MoreFragment.newInstance(
                     getString(R.string.string_order_rating),
-                    getString(R.string.string_ordering),
+                    getString(R.string.string_ordering)
                 )
             )
         }

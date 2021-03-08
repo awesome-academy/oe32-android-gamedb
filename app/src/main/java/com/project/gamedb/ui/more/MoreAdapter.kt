@@ -8,7 +8,9 @@ import com.project.gamedb.base.BaseViewHolder
 import com.project.gamedb.base.OnClickDetailsListener
 import com.project.gamedb.data.model.Games
 
-class MoreAdapter (private val OnClickDetailsListener: OnClickDetailsListener) : BaseAdapter<Games>() {
+class MoreAdapter(private val OnClickDetailsListener: OnClickDetailsListener) :
+    BaseAdapter<Games>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Games> {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_recyclerview_feature, parent, false)

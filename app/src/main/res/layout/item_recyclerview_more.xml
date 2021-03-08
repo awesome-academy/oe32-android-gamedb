@@ -20,13 +20,12 @@
             android:id="@+id/recyclerMore"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_20"
             android:orientation="vertical"
             android:paddingBottom="@dimen/dp_70"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textMoreInfo"
+            app:layout_constraintTop_toTopOf="@id/textMoreInfo"
             app:spanCount="2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
