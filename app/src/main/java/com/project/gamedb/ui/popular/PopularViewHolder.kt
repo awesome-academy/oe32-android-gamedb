@@ -2,7 +2,7 @@ package com.project.gamedb.ui.popular
 
 import android.view.View
 import com.project.gamedb.base.BaseViewHolder
-import com.project.gamedb.base.OnClickDetailsListener
+import com.project.gamedb.base.OnClickFragmentListener
 import com.project.gamedb.data.model.Games
 import com.project.gamedb.data.model.Genres
 import com.project.gamedb.ultis.loadImage
@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.item_recyclerview_main.view.*
 
 class PopularViewHolder(
     private val itemView: View,
-    private val onClickDetailsListener: OnClickDetailsListener
+    private val onClickDetailsListener: OnClickFragmentListener.Details
 ) : BaseViewHolder<Games>(itemView) {
     private var itemData: Games? = null
 
@@ -40,11 +40,5 @@ class PopularViewHolder(
         }
     }
 
-    private fun getListGenres(genres: List<Genres>): String {
-        val list = mutableListOf<String>()
-        for (gen in genres) {
-            list.add(gen.genresName)
-        }
-        return list.toString().replace("[", "").replace("]", "")
-    }
+    private fun getListGenres(genres: List<Genres>): String = genres.joinToString { it.genresName }
 }

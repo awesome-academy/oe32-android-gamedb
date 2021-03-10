@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.project.gamedb.R
 import com.project.gamedb.base.BaseFragment
-import com.project.gamedb.base.OnClickDetailsListener
+import com.project.gamedb.base.OnClickFragmentListener
 import com.project.gamedb.base.OnFragmentIntegrationListener
 import com.project.gamedb.data.model.ResultGames
 import com.project.gamedb.data.source.remote.GameRemoteDataSource
@@ -17,7 +17,7 @@ import com.project.gamedb.ultis.hide
 import com.project.gamedb.ultis.showToast
 import kotlinx.android.synthetic.main.fragment_popular.*
 
-class PopularFragment : BaseFragment(), PopularContract.View, OnClickDetailsListener {
+class PopularFragment : BaseFragment(), PopularContract.View, OnClickFragmentListener.Details {
     override val layoutResource get() = R.layout.fragment_popular
 
     private var mainAdapter: PopularAdapter = PopularAdapter(this)

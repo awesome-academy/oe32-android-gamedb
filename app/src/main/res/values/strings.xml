@@ -46,4 +46,8 @@
     <string name="string_fragment">Fragment</string>
     <string name="text_Loading">Loading</string>
     <string name="string_ordering">ordering</string>
+    <string name="text_save_nothing">You do not save anything yet</string>
+    <string name="text_add_success">Add Success</string>
+    <string name="text_remove_success">Remove Success</string>
+    <string name="text_Followed">Followed</string>
 </resources>

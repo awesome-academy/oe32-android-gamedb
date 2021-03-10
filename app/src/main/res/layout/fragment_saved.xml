@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_mine_shaft"
     android:orientation="vertical"
+    android:id="@+id/saveFragmentLayout"
     tools:context=".ui.saved.SavedGameFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,6 +38,18 @@
             app:layout_constraintTop_toTopOf="@id/stringFavourite"
             app:layout_constraintWidth_percent="0.3" />
 
+        <TextView
+            android:id="@+id/textLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/text_Loading"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toBottomOf="@id/recyclerSaved"
+            app:layout_constraintEnd_toEndOf="@id/recyclerSaved"
+            app:layout_constraintStart_toStartOf="@id/recyclerSaved"
+            app:layout_constraintTop_toTopOf="@id/recyclerSaved" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerSaved"
             android:layout_width="0dp"
@@ -50,4 +63,4 @@
             app:layout_constraintTop_toBottomOf="@id/stringFavourite" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -3,7 +3,7 @@ package com.project.gamedb.ui.more
 import android.view.View
 import android.widget.ImageView
 import com.project.gamedb.base.BaseViewHolder
-import com.project.gamedb.base.OnClickDetailsListener
+import com.project.gamedb.base.OnClickFragmentListener
 import com.project.gamedb.data.model.Games
 import com.project.gamedb.data.model.Genres
 import com.project.gamedb.ultis.PlatformConstants
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.item_recyclerview_main.view.*
 
 class MoreViewHolder(
     private val itemView: View,
-    private val onClickDetailsListener: OnClickDetailsListener
+    private val onClickDetailsListener: OnClickFragmentListener.Details
 ) : BaseViewHolder<Games>(itemView) {
     private var itemData: Games? = null
 
