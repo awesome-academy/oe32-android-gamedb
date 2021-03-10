@@ -1,8 +1,6 @@
 package com.project.gamedb.data.source.remote
 
-import com.project.gamedb.data.model.GameDetail
-import com.project.gamedb.data.model.ResultGames
-import com.project.gamedb.data.model.ResultGenres
+import com.project.gamedb.data.model.*
 import com.project.gamedb.data.source.GameDataSource
 
 class GameRemoteRepository private constructor(
@@ -27,6 +25,18 @@ class GameRemoteRepository private constructor(
 
     override fun getGameRanking(year: Int, callback: OnDataLoadedCallback<ResultGames>) {
         remote.getGameRanking(year, callback)
+    }
+
+    override fun getMoreOption(
+        ordering: String,
+        query: String,
+        callback: OnDataLoadedCallback<ResultGames>
+    ) {
+        remote.getMoreOption(ordering, query, callback)
+    }
+
+    override fun getGenresInfo(info: String, callback: OnDataLoadedCallback<GenresDetails>) {
+        remote.getGenresInfo(info,callback)
     }
 
     companion object {

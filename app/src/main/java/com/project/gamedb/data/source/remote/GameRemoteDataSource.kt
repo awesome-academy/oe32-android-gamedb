@@ -1,8 +1,6 @@
 package com.project.gamedb.data.source.remote
 
-import com.project.gamedb.data.model.GameDetail
-import com.project.gamedb.data.model.ResultGames
-import com.project.gamedb.data.model.ResultGenres
+import com.project.gamedb.data.model.*
 import com.project.gamedb.data.source.DataAsyncTask
 import com.project.gamedb.data.source.GameDataSource
 import com.project.gamedb.data.source.remote.api.ApiConstants
@@ -43,6 +41,28 @@ class GameRemoteDataSource : GameDataSource.Remote {
             getGameRanking(year)
         }.execute()
     }
+
+    override fun getMoreOption(
+        ordering: String,
+        query: String,
+        callback: OnDataLoadedCallback<ResultGames>
+    ) {
+        DataAsyncTask(callback) {
+            getMoreOption(ordering, query)
+        }.execute()
+    }
+
+    override fun getGenresInfo(info: String, callback: OnDataLoadedCallback<GenresDetails>) {
+        DataAsyncTask(callback){
+            getGenresInfo(info)
+        }.execute()
+    }
+
+    private fun getGenresInfo(id: String): GenresDetails  =
+        JSONObject(makeNetworkCall((URL(ApiService.queryGenresInfo(id))))).let(::GenresDetails)
+
+    private fun getMoreOption(ordering: String, query: String): ResultGames =
+        JSONObject(makeNetworkCall((URL(ApiService.queryMore(ordering, query))))).let(::ResultGames)
 
     private fun getGameDetail(id: Long): GameDetail =
         JSONObject(makeNetworkCall((URL(ApiService.queryGameDetail(id))))).let(::GameDetail)

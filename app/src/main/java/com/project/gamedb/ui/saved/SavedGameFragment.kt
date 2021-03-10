@@ -23,7 +23,7 @@ class SavedGameFragment : BaseFragment(), SavedGameContract.View, OnLongClickHan
     View.OnClickListener {
     private var savedAdapter = SavedGameAdapter()
     private var savedGamePresenter: SavedGamePresenter? = null
-    private var mainCallback: OnFragmentIntegrationListener? = null
+    private var mainCallback: OnFragmentIntegrationListener.Open? = null
 
     override var chooseState: Boolean = false
 
@@ -32,10 +32,7 @@ class SavedGameFragment : BaseFragment(), SavedGameContract.View, OnLongClickHan
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        try {
-            mainCallback = context as OnFragmentIntegrationListener
-        } catch (castException: ClassCastException) {
-        }
+        if (context is OnFragmentIntegrationListener.Open) mainCallback = context
     }
 
     override fun startComponents() {

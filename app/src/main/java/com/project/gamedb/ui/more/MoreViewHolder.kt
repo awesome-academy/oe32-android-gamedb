@@ -1,4 +1,4 @@
-package com.project.gamedb.ui.feature
+package com.project.gamedb.ui.more
 
 import android.view.View
 import android.widget.ImageView
@@ -10,31 +10,38 @@ import com.project.gamedb.ultis.PlatformConstants
 import com.project.gamedb.ultis.loadImage
 import com.project.gamedb.ultis.setPlatform
 import kotlinx.android.synthetic.main.item_recyclerview_feature.view.*
-import kotlinx.android.synthetic.main.item_recyclerview_saved.view.*
+import kotlinx.android.synthetic.main.item_recyclerview_feature.view.textGenresFeature
+import kotlinx.android.synthetic.main.item_recyclerview_main.view.*
 
-class FeatureViewHolder(
+class MoreViewHolder(
     private val itemView: View,
     private val onClickDetailsListener: OnClickDetailsListener
-) :
-    BaseViewHolder<Games>(itemView) {
+) : BaseViewHolder<Games>(itemView) {
+    private var itemData: Games? = null
 
-    override fun onBind(item: Games) {
-        itemView.run {
-            setPlatform(this, getPlatform(item.gamePlatforms.toString()))
-            textItemFeature.text = item.gameName
-            gameItemFeature.loadImage(item.gameBackgroundImage)
-            textGenresFeature.text = getListGenres(item.gameGenres)
-            this.setOnClickListener {
+    init {
+        itemView.setOnClickListener {
+            itemData?.let {
                 onClickDetailsListener.openGameDetail(
-                    item.gameId.toInt(),
-                    getListGenres(item.gameGenres)
+                    it.gameId.toInt(),
+                    getListGenres(it.gameGenres)
                 )
             }
         }
     }
 
+    override fun onBind(item: Games) {
+        itemData = item
+        itemView.run {
+            setPlatform(this, getPlatform(item.gamePlatforms.toString()))
+            textGenresFeature.text = getListGenres(item.gameGenres)
+            textItemFeature?.text = item.gameName
+            gameItemFeature?.loadImage(item.gameBackgroundImage)
+        }
+    }
+
     private fun setPlatform(view: View, platforms: List<String>) {
-        val imageSaved = listOf<ImageView>(
+        val image = listOf<ImageView>(
             view.image1stItemPlatform,
             view.image2ndItemPlatform,
             view.image3rdItemPlatform,
@@ -42,14 +49,14 @@ class FeatureViewHolder(
             view.image5thItemPlatform
         )
         for (i in platforms.indices) {
-            imageSaved[i].setPlatform(platforms[i])
+            image[i].setPlatform(platforms[i])
         }
     }
 
     private fun getPlatform(strings: String): List<String> {
         val platforms = mutableListOf<String>()
         for (string in PlatformConstants.platforms) {
-            if (strings.contains(string)) platforms.add(string)
+            platforms.filter { strings.contains(string) }
         }
         if (platforms.contains(PlatformConstants.IOS) && platforms.contains(PlatformConstants.ANDROID)) {
             platforms.remove(PlatformConstants.IOS)
@@ -57,11 +64,5 @@ class FeatureViewHolder(
         return platforms
     }
 
-    private fun getListGenres(genres : List<Genres>): String{
-        val list = mutableListOf<String>()
-        for (gen in genres){
-            list.add(gen.genresName)
-        }
-        return list.toString().replace("[","").replace("]","")
-    }
+    private fun getListGenres(genres: List<Genres>): String = genres.joinToString { it.genresName }
 }

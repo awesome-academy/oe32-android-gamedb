@@ -16,4 +16,3 @@ fun JSONObject.toStringArray(array:JSONArray):List<String> =
             it[i] = array.optString(i)
         }
     }
-

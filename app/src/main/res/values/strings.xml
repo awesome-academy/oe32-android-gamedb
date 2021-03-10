@@ -44,4 +44,6 @@
     <string name="released_date">Released Date: %s</string>
     <string name="genres">Genres: %s</string>
     <string name="string_fragment">Fragment</string>
+    <string name="text_Loading">Loading</string>
+    <string name="string_ordering">ordering</string>
 </resources>

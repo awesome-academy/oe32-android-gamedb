@@ -10,18 +10,18 @@ import com.project.gamedb.ultis.showToast
 import kotlinx.android.synthetic.main.fragment_genres.*
 
 class GenresFragment : BaseFragment(), GenresContract.View {
-    private var genresPresenter: GenresPresenter? = null
-    private val genresAdapter = GenresAdapter()
-
     override val layoutResource: Int
         get() = R.layout.fragment_genres
+
+    private var genresPresenter: GenresPresenter? = null
+    private val genresAdapter = GenresAdapter()
 
     override fun startComponents() {
         initPresenter()
         initAdapter()
         initData()
     }
-    
+
     override fun showGenres(list: ResultGenres) {
         genresAdapter.replaceData(list.results)
     }
@@ -34,12 +34,12 @@ class GenresFragment : BaseFragment(), GenresContract.View {
         genresPresenter?.getGenres()
     }
 
-    private fun initPresenter(){
+    private fun initPresenter() {
         val repository = Repositories.getRemoteRepository(GameRemoteDataSource.getInstance())
         genresPresenter = GenresPresenter(this, repository)
     }
 
-    private fun initAdapter(){
+    private fun initAdapter() {
         recyclerGenres.adapter = genresAdapter
     }
 }

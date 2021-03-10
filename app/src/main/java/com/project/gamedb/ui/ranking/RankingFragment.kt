@@ -11,11 +11,11 @@ import kotlinx.android.synthetic.main.fragment_ranking.*
 import java.util.*
 
 class RankingFragment : BaseFragment(), RankingContract.View {
-    private val rankingAdapter = RankingAdapter()
-    private var rankingPresenter: RankingPresenter? = null
-
     override val layoutResource: Int
         get() = R.layout.fragment_ranking
+
+    private val rankingAdapter = RankingAdapter()
+    private var rankingPresenter: RankingPresenter? = null
 
     override fun startComponents() {
         initPresenter()
@@ -43,6 +43,4 @@ class RankingFragment : BaseFragment(), RankingContract.View {
         val repository = Repositories.getRemoteRepository(GameRemoteDataSource.getInstance())
         rankingPresenter = RankingPresenter(this, repository)
     }
-
-
 }

@@ -1,4 +1,4 @@
-package com.project.gamedb.ui.popular
+package com.project.gamedb.ui.more
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,12 +8,12 @@ import com.project.gamedb.base.BaseViewHolder
 import com.project.gamedb.base.OnClickDetailsListener
 import com.project.gamedb.data.model.Games
 
-class PopularAdapter(private val onClickDetailsListener: OnClickDetailsListener) :
+class MoreAdapter(private val OnClickDetailsListener: OnClickDetailsListener) :
     BaseAdapter<Games>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<Games> {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_recyclerview_main, parent, false)
-        return PopularViewHolder(view, onClickDetailsListener)
+            .inflate(R.layout.item_recyclerview_feature, parent, false)
+        return MoreViewHolder(view, OnClickDetailsListener)
     }
 }

@@ -14,7 +14,8 @@
     <FrameLayout
         android:id="@+id/fragmentDetail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:elevation="@dimen/dp_4" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"

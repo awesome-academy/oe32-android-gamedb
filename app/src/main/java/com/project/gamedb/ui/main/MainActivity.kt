@@ -10,14 +10,18 @@ import com.project.gamedb.R
 import com.project.gamedb.base.BaseActivity
 import com.project.gamedb.base.OnFragmentIntegrationListener
 import com.project.gamedb.ui.genres.GenresFragment
+import com.project.gamedb.ui.more.MoreFragment
 import com.project.gamedb.ui.platform.PlatformFragment
 import com.project.gamedb.ui.popular.PopularFragment
 import com.project.gamedb.ui.ranking.RankingFragment
 import com.project.gamedb.ui.saved.SavedGameFragment
+import com.project.gamedb.ultis.hide
+import com.project.gamedb.ultis.show
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tool_bar_layout.*
 
-class MainActivity : BaseActivity(), OnFragmentIntegrationListener {
+class MainActivity : BaseActivity(), OnFragmentIntegrationListener.Open,
+    OnFragmentIntegrationListener.Close  {
     private val popularFragment = PopularFragment()
     private val platformFragment = PlatformFragment()
     private val genresFragment = GenresFragment()
@@ -38,14 +42,23 @@ class MainActivity : BaseActivity(), OnFragmentIntegrationListener {
 
     override fun openNewFragment(fragment: Fragment) {
         bottomNavigationView.visibility = View.GONE
-        fragmentContainer.visibility = View.GONE
-        viewPagerFragment.visibility = View.GONE
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentDetail, fragment)
-            .addToBackStack(getString(R.string.string_fragment)).commit()
+        fragmentDetail.show()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentDetail, fragment)
+            .addToBackStack(getString(R.string.string_fragment))
+            .commit()
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 0) supportFragmentManager.popBackStack()
+        if (supportFragmentManager.backStackEntryCount > 0) supportFragmentManager.popBackStackImmediate()
+        if (supportFragmentManager.fragments.lastOrNull() !is MoreFragment) {
+            bottomNavigationView.show()
+            fragmentDetail.hide()
+        }
+    }
+
+    override fun pressBackButton() {
+        onBackPressed()
     }
 
     private val onBottomNavigation =
