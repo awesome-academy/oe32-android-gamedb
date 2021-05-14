@@ -57,7 +57,7 @@ class SavedGameViewHolder(private val itemView: View) : BaseViewHolder<GameSaved
     private fun getPlatform(strings: String): List<String> {
         val platforms = mutableListOf<String>()
         for (string in PlatformConstants.platforms) {
-            if (strings.contains(string)) platforms.add(string)
+            platforms.filter { strings.contains(string) }
         }
         if (platforms.contains(PlatformConstants.IOS) && platforms.contains(PlatformConstants.ANDROID)) {
             platforms.remove(PlatformConstants.IOS)

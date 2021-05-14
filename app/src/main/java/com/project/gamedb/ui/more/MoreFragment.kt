@@ -1,14 +1,11 @@
 package com.project.gamedb.ui.more
 
 import android.content.Context
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.PorterDuff
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.project.gamedb.R
 import com.project.gamedb.base.BaseFragment
-import com.project.gamedb.base.OnClickDetailsListener
+import com.project.gamedb.base.OnClickFragmentListener
 import com.project.gamedb.base.OnFragmentIntegrationListener
 import com.project.gamedb.data.model.ResultGames
 import com.project.gamedb.data.source.remote.GameRemoteDataSource
@@ -17,7 +14,7 @@ import com.project.gamedb.ui.details.DetailsFragment
 import com.project.gamedb.ultis.*
 import kotlinx.android.synthetic.main.fragment_more.*
 
-class MoreFragment : BaseFragment(), MoreContract.View, OnClickDetailsListener {
+class MoreFragment : BaseFragment(), MoreContract.View, OnClickFragmentListener.Details {
     override val layoutResource get() = R.layout.fragment_more
 
     private var moreAdapter: MoreAdapter? = null

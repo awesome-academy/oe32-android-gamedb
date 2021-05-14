@@ -1,26 +1,28 @@
 package com.project.gamedb.ui.saved
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.project.gamedb.R
 import com.project.gamedb.base.BaseFragment
+import com.project.gamedb.base.OnClickFragmentListener
 import com.project.gamedb.base.OnLongClickHandler
 import com.project.gamedb.data.model.GameSaved
 import com.project.gamedb.ui.details.DetailsFragment
 import com.project.gamedb.base.OnFragmentIntegrationListener
-import com.project.gamedb.ui.main.MainActivity
 import com.project.gamedb.ultis.Repositories
+import com.project.gamedb.ultis.hide
 import com.project.gamedb.ultis.showToast
 import kotlinx.android.synthetic.main.fragment_saved.*
 import kotlinx.android.synthetic.main.item_recyclerview_saved.view.*
 
 class SavedGameFragment : BaseFragment(), SavedGameContract.View, OnLongClickHandler,
-    View.OnClickListener {
+    View.OnClickListener, OnClickFragmentListener.Save, SwipeRefreshLayout.OnRefreshListener {
+
     private var savedAdapter = SavedGameAdapter()
     private var savedGamePresenter: SavedGamePresenter? = null
     private var mainCallback: OnFragmentIntegrationListener.Open? = null
@@ -35,15 +37,32 @@ class SavedGameFragment : BaseFragment(), SavedGameContract.View, OnLongClickHan
         if (context is OnFragmentIntegrationListener.Open) mainCallback = context
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val loaded = savedInstanceState?.getBoolean(getString(R.string.text_Loading))
+        if (loaded == true) textLoading.hide()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(getString(R.string.text_Loading), true)
+    }
+
     override fun startComponents() {
         initAdapter()
         initPresenter()
         initData()
-        initView()
+        buttonDelete.setOnClickListener(this)
+        saveFragmentLayout.setOnRefreshListener(this)
     }
 
     override fun showGame(list: List<GameSaved>) {
-        savedAdapter.replaceData(list)
+        if (list.isEmpty()) textLoading?.text = getString(R.string.text_save_nothing)
+        else {
+            textLoading?.hide()
+            savedAdapter.replaceData(list)
+            itemList = list.map { it.name }
+        }
     }
 
     override fun showResult(result: String) {
@@ -55,8 +74,8 @@ class SavedGameFragment : BaseFragment(), SavedGameContract.View, OnLongClickHan
         else buttonDelete.visibility = Button.GONE
     }
 
-    override fun openGameDetail(id: Int, genres: String) {
-        mainCallback?.openNewFragment(DetailsFragment(id, genres))
+    override fun addGame(game: GameSaved) {
+        savedGamePresenter?.addGame(game, getString(R.string.text_add_success))
     }
 
     override fun onClick(v: View?) {
@@ -68,23 +87,29 @@ class SavedGameFragment : BaseFragment(), SavedGameContract.View, OnLongClickHan
                 CheckBox.GONE
         }
         for (game in removeList) {
-            savedGamePresenter?.removeGame(game.id, getString(R.string.remove_success))
+            savedGamePresenter?.removeGame(game.id, getString(R.string.text_remove_success))
             savedAdapter.removeData(game)
         }
         removeList.clear()
+        initData()
+    }
+
+    override fun onRefresh() {
+        initData()
+        saveFragmentLayout.isRefreshing = false
+    }
+
+    fun openGameDetail(id: Int, genres: String) {
+        mainCallback?.openNewFragment(DetailsFragment(id, genres))
     }
 
     private fun initData() {
         savedGamePresenter?.getGame()
     }
 
-    private fun initView() {
-        buttonDelete.visibility = Button.GONE
-        buttonDelete.setOnClickListener(this)
-    }
-
     private fun initAdapter() {
         recyclerSaved.adapter = savedAdapter
+        buttonDelete.visibility = Button.GONE
     }
 
     private fun initPresenter() {
@@ -95,6 +120,7 @@ class SavedGameFragment : BaseFragment(), SavedGameContract.View, OnLongClickHan
     companion object {
         private var instance: SavedGameFragment? = null
         var removeList = mutableListOf<GameSaved>()
+        var itemList = listOf<String>()
 
         fun getInstance() = instance ?: SavedGameFragment().also { instance = it }
     }

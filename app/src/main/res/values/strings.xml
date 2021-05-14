@@ -39,11 +39,15 @@
     <string name="string_delete">Delete</string>
     <string name="load_success">Load Succeess</string>
     <string name="remove_success">Remove Success</string>
-    <string name="add_success">Add Success</string>
+    <string name="add_success">Add Successfully</string>
     <string name="meta_score_point">Metascore: %s</string>
     <string name="released_date">Released Date: %s</string>
     <string name="genres">Genres: %s</string>
     <string name="string_fragment">Fragment</string>
     <string name="text_Loading">Loading</string>
     <string name="string_ordering">ordering</string>
+    <string name="text_save_nothing">You do not save anything yet</string>
+    <string name="text_add_success">Add Success</string>
+    <string name="text_remove_success">Remove Success</string>
+    <string name="text_followed">Followed</string>
 </resources>
