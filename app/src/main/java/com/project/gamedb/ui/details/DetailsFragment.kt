@@ -44,7 +44,7 @@ class DetailsFragment(private val idGame: Int, private val genres: String) : Bas
         dialog?.dismiss()
         layoutDetails?.show()
         if (SavedGameFragment.itemList.contains(game.name)) {
-            buttonFollow.text = getString(R.string.text_Followed)
+            buttonFollow.text = getString(R.string.text_followed)
             buttonFollow.isClickable = false
         }
         textGameDetailName?.text = game.name
@@ -95,9 +95,9 @@ class DetailsFragment(private val idGame: Int, private val genres: String) : Bas
                         game.ratingCount.toString()
                     )
                 )
+                text = getString(R.string.text_followed)
+                isClickable = false
             }
-            text = getString(R.string.text_Followed)
-            isClickable = false
         }
     }
 

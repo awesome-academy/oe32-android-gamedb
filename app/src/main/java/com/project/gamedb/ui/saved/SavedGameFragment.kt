@@ -52,6 +52,8 @@ class SavedGameFragment : BaseFragment(), SavedGameContract.View, OnLongClickHan
         initAdapter()
         initPresenter()
         initData()
+        buttonDelete.setOnClickListener(this)
+        saveFragmentLayout.setOnRefreshListener(this)
     }
 
     override fun showGame(list: List<GameSaved>) {
@@ -108,8 +110,6 @@ class SavedGameFragment : BaseFragment(), SavedGameContract.View, OnLongClickHan
     private fun initAdapter() {
         recyclerSaved.adapter = savedAdapter
         buttonDelete.visibility = Button.GONE
-        buttonDelete.setOnClickListener(this)
-        saveFragmentLayout.setOnRefreshListener(this)
     }
 
     private fun initPresenter() {

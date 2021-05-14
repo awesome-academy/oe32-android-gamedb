@@ -16,15 +16,15 @@
 
         <Button
             android:id="@+id/buttonBack"
-            app:layout_constraintDimensionRatio="4:5"
-            app:layout_constraintWidth_percent="0.05"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="@dimen/dp_30"
             android:layout_marginTop="@dimen/dp_30"
             android:background="@drawable/ic_back"
+            app:layout_constraintDimensionRatio="4:5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_height="0dp"
-            android:layout_width="0dp" />
+            app:layout_constraintWidth_percent="0.05" />
 
         <ImageView
             android:id="@+id/imagePublisherDetail"
@@ -159,8 +159,8 @@
             android:layout_marginStart="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_20"
             android:text="@string/string_about"
-            android:textSize="@dimen/sp_24"
             android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_24"
             app:layout_constraintStart_toStartOf="@id/imageInfoBar"
             app:layout_constraintTop_toBottomOf="@id/imageInfoBar" />
 
@@ -169,12 +169,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_20"
-            android:lineSpacingExtra="8sp"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:lineSpacingExtra="@dimen/sp_8"
             android:textColor="@android:color/white"
             android:typeface="serif"
-            android:layout_marginEnd="@dimen/dp_20"
-            app:layout_constraintStart_toStartOf="@id/textAbout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textAbout"
             app:layout_constraintTop_toBottomOf="@id/textAbout" />
 
         <TextView
@@ -183,19 +183,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_20"
             android:text="@string/string_platform"
-            android:textSize="@dimen/sp_20"
             android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
             app:layout_constraintStart_toStartOf="@id/textDetailDescription"
             app:layout_constraintTop_toBottomOf="@id/textDetailDescription" />
 
         <TextView
-            android:textSize="@dimen/sp_20"
             android:id="@+id/textPlaytime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp_20"
             android:text="@string/string_playtime"
             android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/textPlatform" />
 
@@ -210,21 +210,21 @@
             app:layout_constraintTop_toBottomOf="@id/textPlatform" />
 
         <TextView
-            android:textSize="@dimen/sp_20"
             android:id="@+id/textUpdated"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/string_updated"
             android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/string_updated"
             android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_20"
             app:layout_constraintStart_toStartOf="@id/textPlatformDetail"
             app:layout_constraintTop_toBottomOf="@id/textPlatformDetail" />
 
         <TextView
-            android:layout_marginTop="@dimen/dp_10"
             android:id="@+id/textUpdatedDetail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
             android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="@id/textUpdated"
             app:layout_constraintTop_toBottomOf="@id/textUpdated" />
