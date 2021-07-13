@@ -9,6 +9,7 @@ data class Requirements(
     val minimum: String,
     val recommended: String
 ) : Parcelable {
+
     constructor(jsonObject: JSONObject) : this(
         if (jsonObject.has(MINIMUM)) jsonObject.getString(MINIMUM) else "",
         if (jsonObject.has(RECOMMENDED)) jsonObject.getString(RECOMMENDED) else "",

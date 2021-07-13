@@ -1,6 +1,6 @@
 package com.project.gamedb.data.source.remote
 
-import com.project.gamedb.data.model.ResultGames
+import com.project.gamedb.data.model.*
 import com.project.gamedb.data.source.DataAsyncTask
 import com.project.gamedb.data.source.GameDataSource
 import com.project.gamedb.data.source.remote.api.ApiConstants
@@ -12,23 +12,85 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class GameRemoteDataSource : GameDataSource.Remote {
+    private var queryAsyncTask: DataAsyncTask<ResultGames>? = null
+
     override fun getGames(callback: OnDataLoadedCallback<ResultGames>) {
         DataAsyncTask(callback) {
             getGames()
-        }.execute(ApiService.queryFeature())
+        }.execute()
     }
 
     override fun getGamesOrdered(ordering: String, callback: OnDataLoadedCallback<ResultGames>) {
         DataAsyncTask(callback) {
             getGamesOrdered(ordering)
-        }.execute(ApiService.queryFeatureOrdered(ordering))
+        }.execute()
     }
+
+    override fun getGameDetail(id: Long, callback: OnDataLoadedCallback<GameDetail>) {
+        DataAsyncTask(callback) {
+            getGameDetail(id)
+        }.execute()
+    }
+
+    override fun getGenres(callback: OnDataLoadedCallback<ResultGenres>) {
+        DataAsyncTask(callback) {
+            getGenres()
+        }.execute()
+    }
+
+    override fun getGameRanking(year: Int, callback: OnDataLoadedCallback<ResultGames>) {
+        DataAsyncTask(callback) {
+            getGameRanking(year)
+        }.execute()
+    }
+
+    override fun getMoreOption(
+        ordering: String,
+        query: String,
+        callback: OnDataLoadedCallback<ResultGames>
+    ) {
+        DataAsyncTask(callback) {
+            getMoreOption(ordering, query)
+        }.execute()
+    }
+
+    override fun getGenresInfo(info: String, callback: OnDataLoadedCallback<GenresDetails>) {
+        DataAsyncTask(callback){
+            getGenresInfo(info)
+        }.execute()
+    }
+
+    override fun getGameSearched(text: String, callback: OnDataLoadedCallback<ResultGames>) {
+        if (queryAsyncTask != null) queryAsyncTask?.cancel(true)
+        queryAsyncTask = DataAsyncTask(callback){
+            getGameSearched(text)
+        }
+        queryAsyncTask?.execute()
+    }
+
+    private fun getGameSearched(text: String) : ResultGames =
+        JSONObject(makeNetworkCall((URL(ApiService.querySearch(text))))).let(::ResultGames)
+
+    private fun getGenresInfo(id: String): GenresDetails  =
+        JSONObject(makeNetworkCall((URL(ApiService.queryGenresInfo(id))))).let(::GenresDetails)
+
+    private fun getMoreOption(ordering: String, query: String): ResultGames =
+        JSONObject(makeNetworkCall((URL(ApiService.queryMore(ordering, query))))).let(::ResultGames)
+
+    private fun getGameDetail(id: Long): GameDetail =
+        JSONObject(makeNetworkCall((URL(ApiService.queryGameDetail(id))))).let(::GameDetail)
 
     private fun getGamesOrdered(ordering: String): ResultGames =
         JSONObject(makeNetworkCall((URL(ApiService.queryFeatureOrdered(ordering))))).let(::ResultGames)
 
     private fun getGames(): ResultGames =
         JSONObject(makeNetworkCall(URL(ApiService.queryFeature()))).let(::ResultGames)
+
+    private fun getGenres(): ResultGenres =
+        JSONObject(makeNetworkCall(URL(ApiService.queryGenres()))).let(::ResultGenres)
+
+    private fun getGameRanking(year: Int): ResultGames =
+        JSONObject(makeNetworkCall(URL(ApiService.queryRanking(year)))).let(::ResultGames)
 
     private fun makeNetworkCall(
         url: URL,

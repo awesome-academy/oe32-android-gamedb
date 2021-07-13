@@ -1,5 +1,7 @@
 package com.project.gamedb.base
 
 interface OnLongClickHandler {
-    fun onLongClickHandler()
+    var chooseState: Boolean
+
+    fun handleDeleteButton()
 }

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/black"
+    tools:context=".ui.ranking.RankingFragment">
+
+    <TextView
+        android:id="@+id/textRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="0dp"
+        android:text="@string/string_best_of_the_year"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textRankingLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@id/imageFilterYear"/>
+
+    <ImageView
+        android:id="@+id/filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:elevation="@dimen/dp_2"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@id/imageFilterYear"
+        app:layout_constraintStart_toStartOf="@id/imageFilterYear"
+        app:layout_constraintTop_toTopOf="@id/imageFilterYear" />
+
+    <ImageView
+        android:id="@+id/imageFilterYear"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:background="@drawable/image_round"
+        app:layout_constraintDimensionRatio="5:1.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.3" />
+
+    <TextView
+        android:elevation="@dimen/dp_4"
+        android:id="@+id/textFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_year"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_20"
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="@id/imageFilterYear"
+        app:layout_constraintEnd_toEndOf="@id/imageFilterYear"
+        app:layout_constraintStart_toStartOf="@id/imageFilterYear"
+        app:layout_constraintTop_toTopOf="@id/imageFilterYear" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerRanking"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp_50"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageFilterYear" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

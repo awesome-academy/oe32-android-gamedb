@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/saveLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_210"
+    android:layout_marginStart="@dimen/dp_10"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginEnd="@dimen/dp_10"
+    android:layout_marginBottom="@dimen/dp_4"
+    android:background="@drawable/shape_edge"
+    tools:targetApi="o">
+
+    <ImageView
+        android:id="@+id/savedBackground"
+        style="@style/BackGroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:id="@+id/boxChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/button_round"
+        android:checked="true"
+        android:enabled="false" />
+
+    <TextView
+        android:id="@+id/textGameSavedName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_60"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:paddingEnd="@dimen/dp_10"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_30"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        app:layout_constraintTop_toBottomOf="@id/textGameSavedName"
+        app:layout_constraintStart_toStartOf="@id/textGameSavedName"
+        android:id="@+id/image1stFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_alignStart="@id/textGameSavedName"
+        android:layout_marginTop="@dimen/dp_4" />
+
+    <ImageView
+        app:layout_constraintStart_toEndOf="@id/image1stFavPlatform"
+        app:layout_constraintTop_toBottomOf="@id/textGameSavedName"
+        android:id="@+id/image2ndFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_toEndOf="@id/image1stFavPlatform" />
+
+    <ImageView
+        app:layout_constraintStart_toEndOf="@id/image2ndFavPlatform"
+        app:layout_constraintTop_toBottomOf="@id/textGameSavedName"
+        android:id="@+id/image3rdFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_toEndOf="@id/image2ndFavPlatform" />
+
+    <ImageView
+        app:layout_constraintStart_toEndOf="@id/image3rdFavPlatform"
+        app:layout_constraintTop_toBottomOf="@id/textGameSavedName"
+        android:id="@+id/image4thFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_toEndOf="@id/image3rdFavPlatform" />
+
+    <ImageView
+        app:layout_constraintStart_toEndOf="@id/image4thFavPlatform"
+        app:layout_constraintTop_toBottomOf="@id/textGameSavedName"
+        android:id="@+id/image5thFavPlatform"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_toEndOf="@id/image4thFavPlatform" />
+
+    <TextView
+        app:layout_constraintStart_toEndOf="@id/image5thFavPlatform"
+        app:layout_constraintTop_toBottomOf="@id/textGameSavedName"
+        android:id="@+id/textMetaScoreSaved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/imageBar"
+        android:layout_marginStart="@dimen/dp_20"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_17" />
+
+    <ImageView
+        android:scaleX="0.8"
+        android:id="@+id/imageBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textMetaScoreSaved"
+        android:layout_marginStart="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:src="@drawable/image_layer_bar" />
+
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/textGameSavedName"
+        app:layout_constraintTop_toBottomOf="@id/imageBar"
+        android:id="@+id/textReleasedDateSaved"
+        app:layout_constraintWidth_percent="0.25"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageBar"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_12"
+        android:layout_width="0dp" />
+
+    <TextView
+        app:layout_constraintStart_toEndOf="@id/textReleasedDateSaved"
+        app:layout_constraintTop_toBottomOf="@id/imageBar"
+        android:id="@+id/textGenresSaved"
+        app:layout_constraintWidth_percent="0.25"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageBar"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_4"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_toStartOf="@id/imageCommentSaved"
+        android:layout_toEndOf="@id/textReleasedDateSaved"
+        android:autoSizeTextType="uniform"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_12"
+        android:layout_width="0dp" />
+
+    <TextView
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageBar"
+        android:id="@+id/textCommentCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageBar"
+        android:layout_alignEnd="@id/imageBar"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_40"
+        android:autoSizeTextType="uniform"
+        android:textColor="@android:color/white" />
+
+    <ImageView
+        app:layout_constraintEnd_toStartOf="@id/textCommentCount"
+        app:layout_constraintTop_toBottomOf="@id/imageBar"
+        android:id="@+id/imageCommentSaved"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageBar"
+        android:layout_alignEnd="@id/imageBar"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:src="@drawable/ic_comment" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
